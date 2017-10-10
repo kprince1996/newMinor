@@ -31,7 +31,11 @@ public class Testing extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
 
-
+        //ProgressDialog progressDialog=new ProgressDialog(this);
+//        progressDialog.setMessage("getting data");
+//        progressDialog.show();
+        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
+        backgroundTask.execute();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing);
@@ -39,9 +43,11 @@ public class Testing extends AppCompatActivity
 
 
 
-        LoadingData();
-        Json_string=getIntent().getExtras().getString("json_data");
-        //Json_string= Background_jsonresponce.Json_result;
+        //LoadingData();
+        //Json_string=getIntent().getExtras().getString("json_data");
+
+
+        Json_string= Background_jsonresponce.Json_result;
         final ArrayList<Ad_details> com = new ArrayList<>();
 
         try{
@@ -95,13 +101,13 @@ public class Testing extends AppCompatActivity
     }
 
 
-    public  void LoadingData()
-    {
-        ProgressDialog progressDialog=new ProgressDialog(this);
-        progressDialog.setMessage("getting data");
-        progressDialog.show();
-        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
-        backgroundTask.execute();
-    }
+//    public  void LoadingData()
+//    {
+//        ProgressDialog progressDialog=new ProgressDialog(this);
+//        progressDialog.setMessage("getting data");
+//        progressDialog.show();
+//        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
+//        backgroundTask.execute();
+//    }
 }
 

@@ -78,8 +78,9 @@ public class MainScreenActivity extends AppCompatActivity {
                         break;
                     case R.id.tab_myads:
 
+
                         Intent i3=new Intent(MainScreenActivity.this,Testing.class);
-                        i3.putExtra("json_data",Background_jsonresponce.Json_result);
+                      //  i3.putExtra("json_data",Background_jsonresponce.Json_result);
                         startActivity(i3);
 
                         break;

@@ -1,6 +1,7 @@
 package android.rentit.app.rent_it;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -40,6 +41,10 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
     protected void onPreExecute()
     {
         jsonurl="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
+
+        ProgressDialog progressDialog=new ProgressDialog(ctx);
+        progressDialog.setMessage("getting data");
+        progressDialog.show();
 
     }
 
