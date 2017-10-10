@@ -28,6 +28,7 @@ public class MainScreenActivity extends AppCompatActivity {
     private NavigationView nv;
     private BottomBar bottomBar;
     TextView messageview;
+
     //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class MainScreenActivity extends AppCompatActivity {
         //
         //for navigation drawer
         //
-         drawerLayout=(DrawerLayout)findViewById(R.id.mainscreendrawer);
-        actionBarDrawerToggle =new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
+        drawerLayout = (DrawerLayout) findViewById(R.id.mainscreendrawer);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -57,12 +58,10 @@ public class MainScreenActivity extends AppCompatActivity {
         // from ThreeTabsActivity on how to use it.
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId)
-            {
+            public void onTabSelected(@IdRes int tabId) {
 
                 //messageview.setText(TabMessage.get(tabId, false));
-                switch (tabId)
-                {
+                switch (tabId) {
 
                     case R.id.tab_discover:
 
@@ -79,8 +78,8 @@ public class MainScreenActivity extends AppCompatActivity {
                     case R.id.tab_myads:
 
 
-                        Intent i3=new Intent(MainScreenActivity.this,Testing.class);
-                      //  i3.putExtra("json_data",Background_jsonresponce.Json_result);
+                        Intent i3 = new Intent(MainScreenActivity.this, Testing.class);
+                        //  i3.putExtra("json_data",Background_jsonresponce.Json_result);
                         startActivity(i3);
 
                         break;
@@ -95,11 +94,11 @@ public class MainScreenActivity extends AppCompatActivity {
 
             }
         });
-      //
+        //
 
 // above code for bottom
 
-         //nv = (NavigationView)findViewById(R.id.mainscreendrawer);
+        //nv = (NavigationView)findViewById(R.id.mainscreendrawer);
         /*
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -114,28 +113,24 @@ public class MainScreenActivity extends AppCompatActivity {
         });*/
 
 
-
         //loading data
-      ///  LoadingData();
+        ///  LoadingData();
         //
     }
 
     //navbar
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-if(actionBarDrawerToggle.onOptionsItemSelected(item))
-{
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
 
-    return true;
+            return true;
 
-}
+        }
 
         return super.onOptionsItemSelected(item);
     }
     //
-
 
 
 }
