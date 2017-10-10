@@ -14,11 +14,17 @@ public class Ad_details
     private String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
 
 
-    public Ad_details(String price,String name,String smalldesp)
+    public Ad_details(String price,String name,String smalldesp,String email,String phone,String pincode,String motive,String negotiable,String compdesp)
     {
         this.price = price;
         this.name=name;
         this.smalldesp=smalldesp;
+        this.email=email;
+        this.phone=phone;
+        this.pincode=pincode;
+        this.motive=motive;
+        this.negotiable=negotiable;
+        this.compdesp=compdesp;
 
     }
 
@@ -36,5 +42,38 @@ public class Ad_details
     {
         return smalldesp;
     }
+    public String getemail()
+    {
+        return email;
+    }
+
+    public String getphone()
+    {
+        return phone;
+    }
+    public String getPincode()
+    {
+        return pincode;
+    }
+
+    public String getMotive()
+    {
+        return motive;
+    }
+    public String getNegotiable()
+    {
+        return negotiable;
+    }
+    public String getCompdesp()
+    {
+        return compdesp;
+    }
+
+
+
+
+
+
+
 
 }

@@ -53,7 +53,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
 
         TextView A = (TextView) listItemView.findViewById(R.id.price);
-
+        final String price=currentAndroidFlavor.getprice();
         A.setText(currentAndroidFlavor.getprice());
 
 
@@ -64,6 +64,19 @@ public class Adapter extends ArrayAdapter<Ad_details>
         TextView AAA = (TextView) listItemView.findViewById(R.id.desp);
 
         AAA.setText(currentAndroidFlavor.getsdes());
+
+        final String sdes=currentAndroidFlavor.getsdes();
+        final String name=currentAndroidFlavor.getname();
+        final String email=currentAndroidFlavor.getemail();
+        final String phone=currentAndroidFlavor.getphone();
+
+        final String pincode=currentAndroidFlavor.getPincode();
+        final String motive=currentAndroidFlavor.getMotive();
+
+        final String nego=currentAndroidFlavor.getNegotiable();
+        final String comdesp=currentAndroidFlavor.getCompdesp();
+
+
 //        final String cno=currentAndroidFlavor.getC_no();
 //
 //        TextView AB = (TextView) listItemView.findViewById(R.id.element2);
@@ -140,7 +153,16 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
                 Intent intent;
                 intent = new Intent(ctx,Ad_com_info.class);
+                intent.putExtra("key1",price);
 
+                intent.putExtra("key2",sdes);
+                intent.putExtra("key3",name);
+                intent.putExtra("key4",email);
+                intent.putExtra("key5",phone);
+                intent.putExtra("key6",pincode);
+                intent.putExtra("key7",motive);
+                intent.putExtra("key8",nego);
+                intent.putExtra("key9",comdesp);
 
 
 

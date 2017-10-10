@@ -70,7 +70,7 @@ public class Testing extends AppCompatActivity
                 negotiable=ob.getString("negotiable");
                 motive=ob.getString("motive");
 
-                com.add(new Ad_details(price,name,smalldesp));
+                com.add(new Ad_details(price,name,smalldesp,email,phone,pincode,motive,negotiable,compdesp));
 
 
 

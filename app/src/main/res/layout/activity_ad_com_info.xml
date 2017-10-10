@@ -41,6 +41,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="small desp"
+                  android:id="@+id/displaysdesp"
                   />
 
               <TextView
@@ -50,12 +51,14 @@
                   android:text="price"
                   android:textColor="@color/colorPrimaryDark"
                   android:textSize="40dp"
+                  android:id="@+id/displayprice"
                   android:textStyle="bold" />
 
 
               <TextView
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:id="@+id/dispcomdesp"
                   android:text="Complete desp"/>
 
               <View
@@ -95,7 +98,7 @@
                           />
 
                       <TextView
-                          android:id="@+id/textView2"
+                          android:id="@+id/dispincode"
                           android:layout_width="211dp"
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
@@ -123,6 +126,7 @@
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
                           android:gravity="end"
+                          android:id="@+id/displayname"
                           android:text="Location" />
 
 
@@ -145,6 +149,7 @@
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
                           android:gravity="end"
+                          android:id="@+id/dispnego"
                           android:text="Location" />
 
 
@@ -165,6 +170,7 @@
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
                           android:gravity="end"
+                          android:id="@+id/disphone"
                           android:text="Location" />
 
 
@@ -185,6 +191,7 @@
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
                           android:gravity="end"
+                          android:id="@+id/disemail"
                           android:text="Location" />
 
 
@@ -205,6 +212,7 @@
                           android:layout_height="wrap_content"
                           android:textAlignment="textEnd"
                           android:gravity="end"
+                          android:id="@+id/dispmotive"
                           android:text="Location" />
 
 
@@ -242,10 +250,12 @@
 
         <Button
             android:layout_width="0dp"
+            android:id="@+id/callingbutton"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textStyle="bold"
+            android:onClick="calling"
             android:background="@android:color/holo_blue_light"
             android:text="Make Offer By Call" />
 
