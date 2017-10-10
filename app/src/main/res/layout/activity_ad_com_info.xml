@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="android.rentit.app.rent_it.Ad_com_info">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="530dp">
+
+
+
+
+
+
+
+
+
+          <LinearLayout
+    android:layout_width="match_parent"
+              android:orientation="vertical"
+    android:layout_height="match_parent"
+              android:weightSum="1">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="small desp"
+                  />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="10dp"
+                  android:text="price"
+                  android:textColor="@color/colorPrimaryDark"
+                  android:textSize="40dp"
+                  android:textStyle="bold" />
+
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Complete desp"/>
+
+              <View
+                  android:layout_width="match_parent"
+                  android:layout_height="20dp"
+                  android:layout_marginBottom="10dp"
+                  android:layout_marginTop="10dp"
+                  android:background="?attr/colorPrimary"
+
+                  />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Specifications"
+                  android:layout_gravity="center"
+                  android:textSize="20sp"
+                  android:textStyle="bold"/>
+
+
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_height="wrap_content">
+
+
+
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Located in"
+                          />
+
+                      <TextView
+                          android:id="@+id/textView2"
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+
+
+
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Posted By"
+                          />
+
+                      <TextView
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+
+
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Price Negotiable"
+                          />
+
+                      <TextView
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Seller no"
+                          />
+
+                      <TextView
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Seller email"
+                          />
+
+                      <TextView
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_marginTop="10dp"
+
+                      android:layout_height="wrap_content">
+                      <TextView
+                          android:layout_width="197dp"
+                          android:layout_height="wrap_content"
+                          android:text="Rent / Sell"
+                          />
+
+                      <TextView
+                          android:layout_width="211dp"
+                          android:layout_height="wrap_content"
+                          android:textAlignment="textEnd"
+                          android:gravity="end"
+                          android:text="Location" />
+
+
+                  </LinearLayout>
+
+              </LinearLayout>
+
+
+              <TextView
+                  android:layout_width="419dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_weight="0.22"
+                  android:gravity="center"
+                  android:layout_marginTop="10dp"
+                  android:text="Need Help ?? CAll us At '9718327876' 27x7"
+                  android:textColor="@android:color/background_dark"
+                  android:textSize="20sp"
+                  android:textStyle="bold" />
+
+</LinearLayout>
+
+
+
+
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:background="@android:color/holo_blue_light"
+            android:text="Make Offer By Call" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:background="@android:color/holo_blue_light"
+
+            android:layout_weight="1"
+            android:text="Chat with seller" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

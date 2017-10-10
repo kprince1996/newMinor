@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_discover"
+        icon="@mipmap/ic_home_black_24dp"
+        title="Discover" />
+    <tab
+        id="@+id/tab_chat"
+        icon="@mipmap/ic_chat_black_24dp"
+        title="Chats" />
+    <tab
+        id="@+id/tab_camera"
+        icon="@mipmap/ic_camera_black_24dp"
+        title="Sell" />
+    <tab
+        id="@+id/tab_myads"
+        icon="@mipmap/ic_toc_black_24dp"
+        title="MyAds" />
+    <tab
+        id="@+id/tab_profile"
+        icon="@mipmap/ic_person_black_24dp"
+        title="Profile" />
+</tabs>

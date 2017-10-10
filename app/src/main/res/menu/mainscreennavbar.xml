@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/mysccount"
+        android:icon="@mipmap/ic_person_black_24dp"
+
+        android:title="My Account"></item>
+
+    <item android:id="@+id/Setting"
+        android:icon="@mipmap/ic_settings_black_24dp"
+        android:title="My Setting"></item>
+
+    <item android:id="@+id/Logout"
+        android:icon="@mipmap/ic_directions_run_black_24dp"
+        android:title="Logout"></item>
+
+    <item android:id="@+id/Contact"
+        android:icon="@mipmap/ic_contacts_black_24dp"
+        android:title="Contact us"></item>
+
+</menu>
