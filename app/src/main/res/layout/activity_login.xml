@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="?attr/colorPrimary"
 
-    tools:context="android.rentit.app.rent_it.Main2Activity"
+    tools:context="android.rentit.app.rent_it.LoginActivity"
     android:weightSum="1"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">

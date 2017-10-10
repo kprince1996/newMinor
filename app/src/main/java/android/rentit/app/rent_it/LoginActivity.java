@@ -10,11 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,10 +21,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import static android.R.attr.name;
 
-
-public class Main2Activity extends AppCompatActivity implements View.OnClickListener ,GoogleApiClient.OnConnectionFailedListener
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener ,GoogleApiClient.OnConnectionFailedListener
 {
 //    private LinearLayout prof_section;
 
@@ -49,7 +43,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_login);
 
 
 
@@ -151,7 +145,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
            //name.setText();
             //Glide.with(this).load(imgurl).into(prof_pic);
 
-     /* Intent i = new Intent(Main2Activity.this, MainScreen.class);
+     /* Intent i = new Intent(LoginActivity.this, MainScreen.class);
 
               i.putExtra("key1",acct.getDisplayName());
               i.putExtra("key2",acct.getEmail());
@@ -186,7 +180,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
    {
         if(nextstep==true)
         {
-            Intent i = new Intent(Main2Activity.this, MainScreenActivity.class);
+            Intent i = new Intent(LoginActivity.this, MainScreenActivity.class);
 
            // i.putExtra("key1",google_name);
             //i.putExtra("key2",google_email);

@@ -30,5 +30,28 @@
         <item>PG for boys</item>
     </string-array>
 
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+
+
+    <string name="slide_1_title">Forging Fitness!</string>
+    <string name="slide_1_desc">Start where you are!</string>
+
+    <string name="slide_2_title">Achieve Greatness</string>
+    <string name="slide_2_desc">Expert in anything was once a beginner!</string>
+
+    <string name="slide_3_title">Prepare For Glory</string>
+    <string name="slide_3_desc">Use what you have!</string>
+
+    <string name="slide_4_title">PROVE THEM WRONG</string>
+    <string name="slide_4_desc">Lets GO!!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+
 
 </resources>
