@@ -9,10 +9,6 @@
     tools:context="android.rentit.app.rent_it.MainScreenActivity">
 
 
-
-
-
-
         <android.support.design.widget.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

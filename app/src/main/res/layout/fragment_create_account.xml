@@ -8,17 +8,11 @@
     tools:context="android.rentit.app.rent_it.ForgetPassword">
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_height="match_parent">
-
-
-
-
 
 
         <LinearLayout
@@ -53,7 +47,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="8dp">
 
                 <Spinner
                     android:layout_width="0dp"
@@ -105,6 +99,8 @@
                 android:layout_height="wrap_content"
                 android:text="Submit"
                 android:textAppearance="?android:textAppearanceMedium"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/white"
                 android:layout_marginBottom="16dp"/>
 
             <TextView

@@ -42,17 +42,17 @@ public class MainScreenActivity extends AppCompatActivity {
         //
         //for navigation drawer
         //
-        drawerLayout = (DrawerLayout) findViewById(R.id.mainscreendrawer);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+       // drawerLayout = (DrawerLayout) findViewById(R.id.mainscreendrawer);
+       // actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
 
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        //actionBarDrawerToggle.syncState();
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //navbar
 
         //bottom bar
-        messageview = (TextView) findViewById(R.id.messageview);
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        //messageview = (TextView) findViewById(R.id.messageview);
+        //BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
         // We're doing nothing with this listener here this time. Check example usage
         // from ThreeTabsActivity on how to use it.
@@ -76,15 +76,12 @@ public class MainScreenActivity extends AppCompatActivity {
 
                         break;
                     case R.id.tab_myads:
-
-
                         Intent i3 = new Intent(MainScreenActivity.this, Testing.class);
                         //  i3.putExtra("json_data",Background_jsonresponce.Json_result);
                         startActivity(i3);
 
                         break;
                     case R.id.tab_profile:
-
 
                         break;
 
@@ -119,6 +116,8 @@ public class MainScreenActivity extends AppCompatActivity {
     }
 
     //navbar
+
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -131,7 +130,7 @@ public class MainScreenActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     //
-
+*/
 
 }
 

@@ -28,9 +28,6 @@ dependencies {
     //nav
     //bottom nav
 
-
-    
-
 //    compile 'com.android.support:appcompat-v7:25.3.1'
 //    //nav
 //    compile 'com.android.support:design:25.3.1'
@@ -48,17 +45,19 @@ dependencies {
 //    testCompile 'junit:junit:4.12'
 
     compile 'com.android.support:design:25.3.1'
+
+
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.roughike:bottom-bar:2.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.firebase:firebase-core:9.6.0'
-    compile 'com.google.firebase:firebase-auth:9.6.0'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.google.android.gms:play-services-auth:9.6.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support:support-v4:25.3.1'
-
-
     testCompile 'junit:junit:4.12'
 }
+
+
 apply plugin: 'com.google.gms.google-services'
