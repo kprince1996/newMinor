@@ -212,11 +212,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             ft.commit();
             //signin.setVisibility(View.GONE);
 
-
-
-
-
-
         }
     }
     public void forgotpasswordbutton (View view) {

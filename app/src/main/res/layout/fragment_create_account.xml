@@ -23,9 +23,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-
-
-
             <EditText
                 android:id="@+id/edittext_name"
                 android:layout_width="match_parent"
@@ -34,8 +31,6 @@
                 android:hint="Name"
                 android:padding="16dp"
                 android:textAppearance="?android:textAppearanceMedium" />
-
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -87,14 +82,17 @@
                 android:textAppearance="?android:textAppearanceMedium" />
 
             <CheckBox
+                android:id="@+id/checkbox_showpassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="Show Password"
-                android:textAppearance="?android:textAppearanceMedium" />
+                android:textAppearance="?android:textAppearanceMedium"
+                />
 
 
             <Button
+                android:id="@+id/btn_submit_signup_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Submit"
@@ -104,20 +102,14 @@
                 android:layout_marginBottom="16dp"/>
 
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="By creating an account, you agree to Rent-It's Terms and Conditions"
                 android:textAppearance="?android:textAppearanceSmall" />
 
-
-
         </LinearLayout>
-
-
-
-
-
 
     </LinearLayout>
 
