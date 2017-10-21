@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,14 +18,21 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.R.attr.data;
 import static android.rentit.app.rent_it.R.id.pricenego;
 
 public class NewAD extends AppCompatActivity implements View.OnClickListener
 {
 
     //spinner
+
 
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
@@ -46,6 +54,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     CheckBox nego,Rentcheck,Sellcheck;
 
     //
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +92,7 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         Imgstorage=(ImageView)findViewById(R.id.storagepic);
         Imgcamera=(ImageView)findViewById(R.id.camerapic);
         Imgstorage.setOnClickListener(this);
+        Imgcamera.setOnClickListener(this);
 
 
         //edit text for submit ad
@@ -113,6 +124,12 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
                 selectImage();
                 break;
 
+//            case R.id.camerapic:
+////                imagekhase=0;
+////                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+////                startActivityForResult(intent,0);
+//                break;
+
 
 
         }
@@ -132,25 +149,32 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==IMG_REQUEST && resultCode==RESULT_OK && data!=null)
-        {
-            Uri path= data.getData();
+
+        //if(imagekhase==1)
+        //{
+            if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
+                Uri path = data.getData();
 
 
-            try {
-                bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),path);
-                Imgselected.setImageBitmap(bitmap);
-                Imgselected.setVisibility(View.VISIBLE);
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+                    Imgselected.setImageBitmap(bitmap);
+                    Imgselected.setVisibility(View.VISIBLE);
 
-                Imgcamera.setVisibility(View.GONE);
-                Imgstorage.setVisibility(View.GONE);
+                    Imgcamera.setVisibility(View.GONE);
+                    Imgstorage.setVisibility(View.GONE);
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-
-
+//        }else {
+//            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+//            Imgselected.setImageBitmap(bitmap);
+//            Imgselected.setVisibility(View.VISIBLE);
+//            Imgcamera.setVisibility(View.GONE);
+//            Imgstorage.setVisibility(View.GONE);
+       // }
 
     }
 
@@ -204,9 +228,61 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
 
 
          s6="viiiiiii";
+
+        //uploadimage();
+
         BackgroundSubmitAd log2=new BackgroundSubmitAd(this);
-        log2.execute(s1,s2,s3,s4,s5,s8,s9,s10,s6);
+        //log2.execute(s1,s2,s3,s4,s5,s8,s9,s10,s6);
+        log2.execute();
         //log2.execute(s1,s2,s3,s4,s5,s6,s8,s9,s10,s11);
     }
+
+
+    ///upload image code below
+
+    private String imageToString()
+    {
+        ByteArrayOutputStream byteArrayOutputStream =new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] imgbyte=byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgbyte,Base64.DEFAULT);
+    }
+
+    /*
+    private void uploadimage()
+    {
+        String Image=imageToString();
+        String Title=s8;
+        ApiInterface apiInterface=ApiClient.getApiClient().create(ApiInterface.class);
+        Call<ImageClass> call=apiInterface.uploadImage(Title,Image);
+
+        //Call<ImageClass> call=apiInterface.uploadImage(Title,Image,s1,s2,s5,s3,s4,s10,s9,s8,"a","1","1","sell");
+        call.enqueue(new Callback<ImageClass>() {
+            @Override
+            public void onResponse(Call<ImageClass> call, Response<ImageClass> response) {
+                ImageClass imageclass=response.body();
+
+                Toast.makeText(NewAD.this,"server respoonse",Toast.LENGTH_LONG).show();
+
+
+
+//        Toast.makeText(MainActivity.this,"server respoonse",Toast.LENGTH_LONG).show();
+//        Bnchoose.setEnabled(true);
+// Img.setVisibility(View.GONE);
+             //   Bnchoose.setEnabled(true);
+               // Bnupload.setEnabled(false);
+              //  Img_title.setText("");
+              //  Img_title.setVisibility(View.GONE);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ImageClass> call, Throwable t) {
+
+            }
+        });
+
+    }*/
 
 }

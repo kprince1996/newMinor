@@ -36,7 +36,6 @@
     <string name="start">GOT IT</string>
 
 
-
     <string name="slide_1_title">Forging Fitness!</string>
     <string name="slide_1_desc">Start where you are!</string>
 
@@ -51,7 +50,6 @@
 
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
-
 
 
 </resources>

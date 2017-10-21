@@ -219,10 +219,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
     }
-    public void forgotpasswordbutton (View view) {
+    public void forgotpasswordbutton (View view)
+    {
 
         Fragment frag;
-        if (view == findViewById(R.id.forgotpasswordbutton)) {
+        if (view == findViewById(R.id.forgotpasswordbutton))
+        {
 
             ForgetPassword frag1 = new ForgetPassword();
             frag = frag1;

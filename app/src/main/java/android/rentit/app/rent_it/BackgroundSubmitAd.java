@@ -1,6 +1,8 @@
 package android.rentit.app.rent_it;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ public class BackgroundSubmitAd extends AsyncTask<String,Void,String>
 
     static String HHH="";
     static String register_responce;
+    ProgressDialog loading;
 
     BackgroundSubmitAd(Context ctx)
 
@@ -39,6 +42,7 @@ public class BackgroundSubmitAd extends AsyncTask<String,Void,String>
     protected void onPreExecute()
     {
 
+        loading = ProgressDialog.show(ctx, "Posting AD", "Please wait...",true,true);
 
     }
     @Override
@@ -169,10 +173,14 @@ public class BackgroundSubmitAd extends AsyncTask<String,Void,String>
 
         }
 
+
+        loading.dismiss();
+
         //result="";
 
 
     }
+
 
 
 }

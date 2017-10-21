@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import static android.R.attr.description;
+import static android.rentit.app.rent_it.R.id.Ad_list2;
+
 
 public class Testing extends AppCompatActivity
 {
@@ -28,25 +30,25 @@ public class Testing extends AppCompatActivity
     String text="testting";
     int count=0;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
 
-        //ProgressDialog progressDialog=new ProgressDialog(this);
-//        progressDialog.setMessage("getting data");
-//        progressDialog.show();
-        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
+
+        Background_jsonresponce backgroundTask = new Background_jsonresponce(this,this);
         backgroundTask.execute();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing);
 
 
+    }
 
 
-        //LoadingData();
-        //Json_string=getIntent().getExtras().getString("json_data");
+    public static void helper(Testing obj)
+    {
+        obj.updategui();
+    }
 
-
+    public void updategui()
+    {
         Json_string= Background_jsonresponce.Json_result;
         final ArrayList<Ad_details> com = new ArrayList<>();
 
@@ -80,7 +82,7 @@ public class Testing extends AppCompatActivity
 
 
 
-                ListView listView = (ListView) findViewById(R.id.Ad_list);
+                ListView listView = (ListView) findViewById(Ad_list2);
                 Adapter adapter = new Adapter(this, com);
                 listView.setAdapter(adapter);
 
@@ -101,13 +103,6 @@ public class Testing extends AppCompatActivity
     }
 
 
-//    public  void LoadingData()
-//    {
-//        ProgressDialog progressDialog=new ProgressDialog(this);
-//        progressDialog.setMessage("getting data");
-//        progressDialog.show();
-//        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
-//        backgroundTask.execute();
-//    }
+
 }
 
