@@ -51,8 +51,8 @@ public class MainScreenActivity extends AppCompatActivity {
         //navbar
 
         //bottom bar
-        //messageview = (TextView) findViewById(R.id.messageview);
-        //BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        messageview = (TextView) findViewById(R.id.messageview);
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
         // We're doing nothing with this listener here this time. Check example usage
         // from ThreeTabsActivity on how to use it.
@@ -77,7 +77,7 @@ public class MainScreenActivity extends AppCompatActivity {
                         break;
                     case R.id.tab_myads:
                         Intent i3 = new Intent(MainScreenActivity.this, Testing.class);
-                        //  i3.putExtra("json_data",Background_jsonresponce.Json_result);
+                          i3.putExtra("json_data",Background_jsonresponce.Json_result);
                         startActivity(i3);
 
                         break;
