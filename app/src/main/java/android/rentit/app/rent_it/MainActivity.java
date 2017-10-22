@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import static android.rentit.app.rent_it.R.id.view;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnCreateAccount;
@@ -25,6 +27,21 @@ public class MainActivity extends AppCompatActivity {
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Fragment frag;
+
+
+                    CreateAccount frag1 = new CreateAccount();
+                    frag = frag1;
+
+                    FragmentManager fm = getSupportFragmentManager();
+
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.fragment_switch, frag).commit();
+
+                    ft.addToBackStack(null).commit();
+
+                    //signin.setVisibility(View.GONE);
 
 
             }

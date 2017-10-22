@@ -27,6 +27,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".Ad_com_info"/>
 
+
     </application>
 
 </manifest>
