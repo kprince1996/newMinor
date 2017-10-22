@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,36 +13,38 @@
 
 
 
-        <android.support.design.widget.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:menu="@menu/mainscreennavbar"
-            android:layout_gravity="start"
-            app:headerLayout="@layout/mainscreennavigationheader">
+        <!--<android.support.design.widget.NavigationView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--app:menu="@menu/mainscreennavbar"-->
+            <!--android:layout_gravity="start"-->
+            <!--app:headerLayout="@layout/mainscreennavigationheader">-->
 
 
-        </android.support.design.widget.NavigationView>
+        <!--</android.support.design.widget.NavigationView>-->
 
 
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
 
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/myScrollingContent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
+        <!--<android.support.v4.widget.NestedScrollView-->
+            <!--android:id="@+id/myScrollingContent"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:fitsSystemWindows="true">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:id="@+id/messageview"
-                android:text="s" />
+         <!---->
+        <!--</android.support.v4.widget.NestedScrollView>-->
 
-        </android.support.v4.widget.NestedScrollView>
+    <fragment
+        android:id="@+id/fragment_switch2"
+        android:name="android.rentit.app.rent_it.Maindisplay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/activity_login2">
+
+    </fragment>
 
 
         <com.roughike.bottombar.BottomBar
@@ -53,7 +55,6 @@
             app:bb_behavior="underNavbar|shy"
             app:bb_tabXmlResource="@xml/bottombar_tabs_three" />
 
-    </android.support.design.widget.CoordinatorLayout>
 
 
 
@@ -62,4 +63,4 @@
 
 
 
-</android.support.v4.widget.DrawerLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -21,9 +21,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+
 
 import static android.R.attr.data;
 import static android.rentit.app.rent_it.R.id.pricenego;

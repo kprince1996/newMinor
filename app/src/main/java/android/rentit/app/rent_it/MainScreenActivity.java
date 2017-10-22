@@ -5,6 +5,12 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -51,7 +57,7 @@ public class MainScreenActivity extends AppCompatActivity {
         //navbar
 
         //bottom bar
-        messageview = (TextView) findViewById(R.id.messageview);
+      //  messageview = (TextView) findViewById(R.id.messageview);
         BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
         // We're doing nothing with this listener here this time. Check example usage
@@ -64,9 +70,33 @@ public class MainScreenActivity extends AppCompatActivity {
                 switch (tabId) {
 
                     case R.id.tab_discover:
+                        Fragment frag22;
+
+
+                        Maindisplay frag222 = new Maindisplay();
+                        frag22 = frag222;
+
+                        FragmentManager fm222 = getSupportFragmentManager();
+
+                        FragmentTransaction ft222 = fm222.beginTransaction();
+                        ft222.replace(R.id.fragment_switch2, frag22).commit();
+
 
                         break;
                     case R.id.tab_chat:
+
+
+                        Fragment frag11;
+
+
+                        Chatfragment frag111 = new Chatfragment();
+                        frag11 = frag111;
+
+                        FragmentManager fm111 = getSupportFragmentManager();
+
+                        FragmentTransaction ft111 = fm111.beginTransaction();
+                        ft111.replace(R.id.fragment_switch2, frag11).commit();
+
                         break;
                     case R.id.tab_camera:
 
@@ -82,6 +112,20 @@ public class MainScreenActivity extends AppCompatActivity {
 
                         break;
                     case R.id.tab_profile:
+
+
+                        Fragment frag;
+
+
+                        Profilefragment frag1 = new Profilefragment();
+                        frag = frag1;
+
+                        FragmentManager fm = getSupportFragmentManager();
+
+                        FragmentTransaction ft = fm.beginTransaction();
+                        ft.replace(R.id.fragment_switch2, frag).commit();
+
+                        // ft.addToBackStack(null).commit();
 
                         break;
 
