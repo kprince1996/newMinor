@@ -31,12 +31,11 @@ public class Testing extends AppCompatActivity
     int count=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_testing);
 
         Background_jsonresponce backgroundTask = new Background_jsonresponce(this,this);
         backgroundTask.execute();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_testing);
 
 
     }

@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         android:padding="16dp">
@@ -25,35 +25,14 @@
             android:padding="16dp"
             android:textAppearance="?android:textAppearanceMedium" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="We'll send you a text verification"
-            android:textAppearance="?android:textAppearanceMedium" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
-
-            <Spinner
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:layout_weight="1"
-                android:padding="16dp" />
-
-            <EditText
+        <EditText
                 android:id="@+id/edittext_contact"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:layout_weight="2"
                 android:hint="Mobile Number"
                 android:padding="16dp"
                 android:textAppearance="?android:textAppearanceMedium" />
-        </LinearLayout>
 
 
         <EditText
@@ -72,6 +51,7 @@
             android:layout_marginBottom="16dp"
             android:hint="Create a password (6+ character)"
             android:padding="16dp"
+            android:inputType="textPassword"
             android:textAppearance="?android:textAppearanceMedium" />
 
         <CheckBox
