@@ -115,14 +115,20 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
     {
 
 
+//        if(result=="")
+//        {
+//            Toast.makeText(ctx, "NO INTERNET ACCES PLZ CONNECT TO INTERNET", Toast.LENGTH_LONG).show();
+//
+//
+//        }else
+//            {
 
-
-        Toast.makeText(ctx, "now click on get complaints lists", Toast.LENGTH_LONG).show();
-        Json_result = result;
-        progressDialog.dismiss();
-        Testing.helper(obj);
-       // Maindisplay.helper(obj);
-
+            Toast.makeText(ctx, "now click on get complaints lists", Toast.LENGTH_LONG).show();
+            Json_result = result;
+            progressDialog.dismiss();
+            Testing.helper(obj);
+            // Maindisplay.helper(obj);
+     //   }
 
 
 

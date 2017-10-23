@@ -24,13 +24,11 @@
         <activity android:name=".MainScreenActivity" />
         <activity android:name=".NewAD" />
         <activity android:name=".Testing" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Ad_com_info"/>
-        <activity android:name=".CreateAccount"/>
-        <activity android:name=".ForgetPassword"/>
-
-
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Ad_com_info" />
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".ForgetPassword" />
+        <activity android:name=".test2"></activity>
     </application>
 
 </manifest>
