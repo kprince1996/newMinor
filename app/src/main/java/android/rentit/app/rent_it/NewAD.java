@@ -36,7 +36,7 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     ArrayAdapter<CharSequence> adapter;
 
     //
-
+static int imagekhase=0;
     private ImageView Imgcamera,Imgselected,Imgstorage;
     private static final int IMG_REQUEST=777;
     private Bitmap bitmap;
@@ -119,14 +119,15 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         {
 
             case R.id.storagepic:
+                imagekhase=1;
                 selectImage();
                 break;
 
-//            case R.id.camerapic:
-////                imagekhase=0;
-////                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-////                startActivityForResult(intent,0);
-//                break;
+            case R.id.camerapic:
+                imagekhase=0;
+                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,0);
+                break;
 
 
 
@@ -148,8 +149,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        //if(imagekhase==1)
-        //{
+        if(imagekhase==1)
+        {
             if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
                 Uri path = data.getData();
 
@@ -166,13 +167,13 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
                     e.printStackTrace();
                 }
             }
-//        }else {
-//            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-//            Imgselected.setImageBitmap(bitmap);
-//            Imgselected.setVisibility(View.VISIBLE);
-//            Imgcamera.setVisibility(View.GONE);
-//            Imgstorage.setVisibility(View.GONE);
-       // }
+        }else {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            Imgselected.setImageBitmap(bitmap);
+            Imgselected.setVisibility(View.VISIBLE);
+            Imgcamera.setVisibility(View.GONE);
+            Imgstorage.setVisibility(View.GONE);
+        }
 
     }
 
@@ -230,21 +231,21 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         //uploadimage();
 
         BackgroundSubmitAd log2=new BackgroundSubmitAd(this);
-        //log2.execute(s1,s2,s3,s4,s5,s8,s9,s10,s6);
-        log2.execute();
+        log2.execute(s1,s2,s3,s4,s5,s8,s9,s10,s6);
+        //log2.execute();
         //log2.execute(s1,s2,s3,s4,s5,s6,s8,s9,s10,s11);
     }
 
 
     ///upload image code below
 
-    private String imageToString()
-    {
-        ByteArrayOutputStream byteArrayOutputStream =new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-        byte[] imgbyte=byteArrayOutputStream.toByteArray();
-        return Base64.encodeToString(imgbyte,Base64.DEFAULT);
-    }
+//    private String imageToString()
+//    {
+//        ByteArrayOutputStream byteArrayOutputStream =new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+//        byte[] imgbyte=byteArrayOutputStream.toByteArray();
+//        return Base64.encodeToString(imgbyte,Base64.DEFAULT);
+//    }
 
     /*
     private void uploadimage()

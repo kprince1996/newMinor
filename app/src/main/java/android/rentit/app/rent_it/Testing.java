@@ -34,8 +34,8 @@ public class Testing extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing);
 
-        Background_jsonresponce backgroundTask = new Background_jsonresponce(this,this);
-        backgroundTask.execute();
+        //Background_jsonresponce backgroundTask = new Background_jsonresponce(this,this);
+       // backgroundTask.execute();
 
 
     }

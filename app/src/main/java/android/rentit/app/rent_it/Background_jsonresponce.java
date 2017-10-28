@@ -27,7 +27,9 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
     AlertDialog alertDialog;
     Context ctx;
     Testing obj;
-    // Maindisplay obj;
+    //
+    Maindisplay obj2;
+    String sourece;
 
     static String Json_result;
 
@@ -39,18 +41,27 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
 //
 //    }
 
-    Background_jsonresponce(Context ctx,Testing obj)
-{
-    this.ctx=ctx;
-    this.obj=obj;
+//    Background_jsonresponce(Context ctx,Testing obj)
+//{
+//    this.ctx=ctx;
+//    this.obj=obj;
+//
+//}
 
-}
+    Background_jsonresponce(Context ctx,Maindisplay obj2,String source)
+    {
+        this.ctx=ctx;
+        this.obj2=obj2;
+        this.sourece=source;
+
+    }
 
     @Override
     protected void onPreExecute()
     {
-        jsonurl="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
-
+      //  jsonurl="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
+        //jsonurl="http://muscleuptk.000webhostapp.com/MinorProject/priceass.php";
+        jsonurl=sourece;
         progressDialog=new ProgressDialog(ctx);
         progressDialog.setMessage("getting data");
         progressDialog.show();
@@ -125,9 +136,13 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
 
             Toast.makeText(ctx, "now click on get complaints lists", Toast.LENGTH_LONG).show();
             Json_result = result;
+
             progressDialog.dismiss();
-            Testing.helper(obj);
-            // Maindisplay.helper(obj);
+
+            //Testing.helper(obj);
+
+
+             Maindisplay.helper(obj2);
      //   }
 
 

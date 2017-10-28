@@ -106,9 +106,15 @@ public class MainScreenActivity extends AppCompatActivity {
 
                         break;
                     case R.id.tab_myads:
-                        Intent i3 = new Intent(MainScreenActivity.this, Testing.class);
-                          i3.putExtra("json_data",Background_jsonresponce.Json_result);
-                        startActivity(i3);
+
+                        Fragment frag33;
+                        MyAds frag333 = new MyAds();
+                        frag33 = frag333;
+
+                        FragmentManager fm333 = getSupportFragmentManager();
+
+                        FragmentTransaction ft333 = fm333.beginTransaction();
+                        ft333.replace(R.id.fragment_switch2, frag33).commit();
 
                         break;
                     case R.id.tab_profile:
