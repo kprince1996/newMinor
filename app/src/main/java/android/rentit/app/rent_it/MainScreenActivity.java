@@ -41,6 +41,8 @@ public class MainScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
+
+
 //        //for responce from database
 //        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
 //        backgroundTask.execute();
@@ -118,11 +120,7 @@ public class MainScreenActivity extends AppCompatActivity {
 
                         break;
                     case R.id.tab_profile:
-
-
                         Fragment frag;
-
-
                         Profilefragment frag1 = new Profilefragment();
                         frag = frag1;
 
