@@ -17,11 +17,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import static android.rentit.app.rent_it.Maindisplay.ctx;
+import static android.rentit.app.rent_it.Maindisplay.thishai;
 import static android.rentit.app.rent_it.R.string.close;
 import static android.rentit.app.rent_it.R.string.open;
 import static android.rentit.app.rent_it.R.string.title_activity_main_screen;
@@ -179,6 +183,19 @@ public class MainScreenActivity extends AppCompatActivity {
     }
     //
 */
+
+    public void assclick(View view)
+    {
+
+
+//        Toast.makeText(this, "vipul", Toast.LENGTH_LONG).show();
+
+//        Maindisplay.assclick(view);
+        String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
+        Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,thishai,source);
+        backgroundTask.execute();
+
+    }
 
 }
 

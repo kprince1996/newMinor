@@ -43,7 +43,8 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
     String price;
     String smalldesp;
     String name;
-    Context ctx;
+    static Context ctx;
+    static Maindisplay thishai;
     String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
 
     String text="testting";
@@ -61,7 +62,8 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
 //        ass.setOnClickListener(this);
 //        desc.setOnClickListener(this);
         ctx=getContext();
-        String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
+        thishai=this;
+        String source="http://muscleuptk.000webhostapp.com/MinorProject/priceass.php";
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);
         backgroundTask.execute();
 
@@ -139,13 +141,15 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
 
 
 
-//        public void ass (View view)
+//        public static void assclick(View view)
 //        {
-//            Toast.makeText(getActivity(), "vipul",
-//                    Toast.LENGTH_LONG).show();
+//
+//            String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
 //
 //
-//            }
+//            backgroundTask.execute();
+
+          //  }
 //    public void pricedesc(View view)
 //    {
 //
