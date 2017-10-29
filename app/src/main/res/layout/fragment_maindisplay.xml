@@ -14,32 +14,32 @@
     tools:layout_editor_absoluteX="0dp">
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
 
-    <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Sortprice"
-        android:onClick="assclick"
-        android:id="@+id/asss"
-    />
     <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="sortpricedesc"-->
-        <!--android:id="@+id/descc"-->
-        <!--/>-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Sortprice"-->
+        <!--android:onClick="assclick"-->
+        <!--android:id="@+id/asss"-->
+    <!--/>-->
+    <!--&lt;!&ndash;<Button&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="sortpricedesc"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/descc"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="vipul "-->
-        <!--/>-->
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="vipul "&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
 
-</LinearLayout>
+<!--</LinearLayout>-->
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

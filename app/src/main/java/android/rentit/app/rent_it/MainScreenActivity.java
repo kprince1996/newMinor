@@ -184,18 +184,18 @@ public class MainScreenActivity extends AppCompatActivity {
     //
 */
 
-    public void assclick(View view)
-    {
-
-
-//        Toast.makeText(this, "vipul", Toast.LENGTH_LONG).show();
-
-//        Maindisplay.assclick(view);
-        String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
-        Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,thishai,source);
-        backgroundTask.execute();
-
-    }
+//    public void assclick(View view)
+//    {
+//
+//
+////        Toast.makeText(this, "vipul", Toast.LENGTH_LONG).show();
+//
+////        Maindisplay.assclick(view);
+//        String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
+//        Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,thishai,source);
+//        backgroundTask.execute();
+//
+//    }
 
 }
 

@@ -62,8 +62,8 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
 //        ass.setOnClickListener(this);
 //        desc.setOnClickListener(this);
         ctx=getContext();
-        thishai=this;
-        String source="http://muscleuptk.000webhostapp.com/MinorProject/priceass.php";
+       // thishai=this;
+        String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);
         backgroundTask.execute();
 

@@ -64,7 +64,7 @@ public class BackgroundSubmitAd extends AsyncTask<String,Void,String>
         String ad_c_compdesp=params[6];
         String ad_c_price=params[7];
         String ad_c_privenego=params[8];
-//        String ad_c_motive=params[9];
+        String image=params[9];
 
 
 
@@ -106,9 +106,9 @@ public class BackgroundSubmitAd extends AsyncTask<String,Void,String>
                             URLEncoder.encode("price", "UTF-8") + "=" + URLEncoder.encode(ad_c_price, "UTF-8")
                             +"&"+
                             URLEncoder.encode("nego", "UTF-8") + "=" + URLEncoder.encode(ad_c_privenego, "UTF-8")
-                    //
-//                            +"&"+
-//                           URLEncoder.encode("motive", "UTF-8") + "=" + URLEncoder.encode(ad_c_motive, "UTF-8")
+
+                             +"&"+
+                           URLEncoder.encode("motive", "UTF-8") + "=" + URLEncoder.encode(image, "UTF-8")
                     ;
 
             bufferedWriter.write(data);
