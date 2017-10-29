@@ -134,7 +134,7 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
 //        }else
 //            {
 
-        Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
+        Toast.makeText(ctx, "json responce complete", Toast.LENGTH_LONG).show();
 
        // Toast.makeText(ctx, "now click on get complaints lists", Toast.LENGTH_LONG).show();
             Json_result = result;

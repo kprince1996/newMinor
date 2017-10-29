@@ -1,5 +1,7 @@
 package android.rentit.app.rent_it;
 
+import android.graphics.Bitmap;
+
 import static android.R.attr.description;
 
 /**

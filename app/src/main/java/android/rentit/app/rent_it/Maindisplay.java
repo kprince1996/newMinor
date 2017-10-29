@@ -2,6 +2,7 @@ package android.rentit.app.rent_it;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,9 +11,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.NetworkImageView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -47,6 +55,13 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
     static Maindisplay thishai;
     String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
     String imagelink;
+
+
+    Bitmap image;
+    private ImageLoader imageLoader;
+    private NetworkImageView imageView;
+ImageView hai;
+
 
     String text="testting";
     int count=0;
@@ -113,6 +128,35 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
                 negotiable=ob.getString("negotiable");
                 motive=ob.getString("motive");
                 imagelink=ob.getString("path");
+
+
+
+//image ka
+
+
+
+//
+//                ImageRequest imageRequest= new ImageRequest(imagelink, new Response.Listener<Bitmap>() {
+//                    @Override
+//                    public void onResponse(Bitmap response) {
+//
+//                        image=response;
+//                    }
+//                }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//
+//                    }
+//                });
+//
+//                Singleton.getmImstance(getActivity()).addRequestque(imageRequest);
+//
+
+
+                /////
+
+
 
                 com.add(new Ad_details(price,name,smalldesp,email,phone,pincode,motive,negotiable,compdesp,imagelink));
 

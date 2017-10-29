@@ -54,6 +54,8 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:9.6.0'
     compile 'net.gotev:uploadservice:2.1'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 
     testCompile 'junit:junit:4.12'
 

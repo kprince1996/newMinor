@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -65,9 +68,11 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         AAA.setText(currentAndroidFlavor.getsdes());
 
-        TextView AAAA = (TextView) listItemView.findViewById(R.id.link);
+        ImageView AAAA = (ImageView) listItemView.findViewById(R.id.adimage);
 
-        AAAA.setText(currentAndroidFlavor.getImagelink());
+        Picasso.with(ctx)
+                .load(currentAndroidFlavor.getImagelink())
+                .into(AAAA);
 
         final String sdes=currentAndroidFlavor.getsdes();
         final String name=currentAndroidFlavor.getname();
@@ -79,7 +84,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         final String nego=currentAndroidFlavor.getNegotiable();
         final String comdesp=currentAndroidFlavor.getCompdesp();
-        final String image=currentAndroidFlavor.getImagelink();
+        //final String image=currentAndroidFlavor.getImagelink();
 
 
 
@@ -169,7 +174,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
                 intent.putExtra("key7",motive);
                 intent.putExtra("key8",nego);
                 intent.putExtra("key9",comdesp);
-                intent.putExtra("key10",image);
+              //  intent.putExtra("key10",image);
 
 
 
