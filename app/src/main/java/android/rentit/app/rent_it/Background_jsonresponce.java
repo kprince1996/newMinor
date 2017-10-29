@@ -26,7 +26,7 @@ public class Background_jsonresponce extends AsyncTask<Void,Void,String>
     ProgressDialog progressDialog;
     AlertDialog alertDialog;
     Context ctx;
-    Testing obj;
+   // Testing obj;
     //
     Maindisplay obj2;
     String sourece;

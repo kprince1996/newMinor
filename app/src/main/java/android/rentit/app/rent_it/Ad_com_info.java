@@ -1,20 +1,36 @@
 package android.rentit.app.rent_it;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.bumptech.glide.RequestManager;
+
+import static android.rentit.app.rent_it.R.id.link;
 
 public class Ad_com_info extends AppCompatActivity {
 
     Button call;
     String price,sdesp,name,email,phone,pincode,motive,nego,comdesp;
 
+
     TextView displaypri,dispsdesp,disname,disemail,disphone,dispincode,dispmotive,dispnego,dispcomdesp;
+    TextView linkimage;
+
+    String imageurl;
+    ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +48,9 @@ public class Ad_com_info extends AppCompatActivity {
         dispmotive=(TextView)findViewById(R.id.dispmotive) ;
         dispnego=(TextView)findViewById(R.id.dispnego) ;
         dispcomdesp=(TextView)findViewById(R.id.dispcomdesp) ;
+        imageView=(ImageView) findViewById(R.id.adimage);
+       // linkimage=(TextView)findViewById(link);
+
 
 
         price =getIntent().getExtras().getString("key1");
@@ -52,6 +71,8 @@ public class Ad_com_info extends AppCompatActivity {
             nego="Negotiable";
         }
         comdesp=getIntent().getExtras().getString("key9");
+        imageurl=getIntent().getExtras().getString("key10");
+
 
         displaypri.setText(price);
         dispsdesp.setText(sdesp);
@@ -66,8 +87,25 @@ public class Ad_com_info extends AppCompatActivity {
         dispmotive.setText(motive);
         dispnego.setText(nego);
         dispcomdesp.setText(comdesp);
+       // linkimage.setText(imageurl);
 
-    }
+//
+//        ImageRequest imageRequest= new ImageRequest(imageurl, new Response.Listener<Bitmap>() {
+//            @Override
+//            public void onResponse(Bitmap response) {
+//
+//                imageView.setImageBitmap(response);
+//            }
+//        }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//
+//            }
+//        });
+//
+//        Singleton.getmImstance(Ad_com_info.this).addRequestque(imageRequest);
+//    }
 
 
 

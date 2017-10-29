@@ -12,9 +12,10 @@ public class Ad_details
     private String smalldesp;
     private String name;
     private String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
+    private String imagelink;
 
 
-    public Ad_details(String price,String name,String smalldesp,String email,String phone,String pincode,String motive,String negotiable,String compdesp)
+    public Ad_details(String price,String name,String smalldesp,String email,String phone,String pincode,String motive,String negotiable,String compdesp,String imagelink)
     {
         this.price = price;
         this.name=name;
@@ -25,6 +26,7 @@ public class Ad_details
         this.motive=motive;
         this.negotiable=negotiable;
         this.compdesp=compdesp;
+        this.imagelink=imagelink;
 
     }
 
@@ -67,6 +69,11 @@ public class Ad_details
     public String getCompdesp()
     {
         return compdesp;
+    }
+
+    public String getImagelink()
+    {
+        return imagelink;
     }
 
 

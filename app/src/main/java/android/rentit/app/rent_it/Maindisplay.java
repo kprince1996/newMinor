@@ -46,6 +46,7 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
     static Context ctx;
     static Maindisplay thishai;
     String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
+    String imagelink;
 
     String text="testting";
     int count=0;
@@ -111,8 +112,9 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
                 cat=ob.getString("category");
                 negotiable=ob.getString("negotiable");
                 motive=ob.getString("motive");
+                imagelink=ob.getString("path");
 
-                com.add(new Ad_details(price,name,smalldesp,email,phone,pincode,motive,negotiable,compdesp));
+                com.add(new Ad_details(price,name,smalldesp,email,phone,pincode,motive,negotiable,compdesp,imagelink));
 
 
 

@@ -65,6 +65,10 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         AAA.setText(currentAndroidFlavor.getsdes());
 
+        TextView AAAA = (TextView) listItemView.findViewById(R.id.link);
+
+        AAAA.setText(currentAndroidFlavor.getImagelink());
+
         final String sdes=currentAndroidFlavor.getsdes();
         final String name=currentAndroidFlavor.getname();
         final String email=currentAndroidFlavor.getemail();
@@ -75,6 +79,8 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         final String nego=currentAndroidFlavor.getNegotiable();
         final String comdesp=currentAndroidFlavor.getCompdesp();
+        final String image=currentAndroidFlavor.getImagelink();
+
 
 
 //        final String cno=currentAndroidFlavor.getC_no();
@@ -163,6 +169,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
                 intent.putExtra("key7",motive);
                 intent.putExtra("key8",nego);
                 intent.putExtra("key9",comdesp);
+                intent.putExtra("key10",image);
 
 
 
