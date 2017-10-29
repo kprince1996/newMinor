@@ -36,42 +36,40 @@ public class Ad_com_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad_com_info);
 
-        call=(Button)findViewById(R.id.callingbutton);
+        call = (Button) findViewById(R.id.callingbutton);
 
-        displaypri=(TextView)findViewById(R.id.displayprice) ;
-        dispsdesp=(TextView)findViewById(R.id.displaysdesp) ;
-        disname=(TextView)findViewById(R.id.displayname) ;
+        displaypri = (TextView) findViewById(R.id.displayprice);
+        dispsdesp = (TextView) findViewById(R.id.displaysdesp);
+        disname = (TextView) findViewById(R.id.displayname);
 
-        disemail=(TextView)findViewById(R.id.disemail) ;
-        disphone=(TextView)findViewById(R.id.disphone) ;
-        dispincode=(TextView)findViewById(R.id.dispincode) ;
-        dispmotive=(TextView)findViewById(R.id.dispmotive) ;
-        dispnego=(TextView)findViewById(R.id.dispnego) ;
-        dispcomdesp=(TextView)findViewById(R.id.dispcomdesp) ;
-        imageView=(ImageView) findViewById(R.id.adimage);
-       // linkimage=(TextView)findViewById(link);
+        disemail = (TextView) findViewById(R.id.disemail);
+        disphone = (TextView) findViewById(R.id.disphone);
+        dispincode = (TextView) findViewById(R.id.dispincode);
+        dispmotive = (TextView) findViewById(R.id.dispmotive);
+        dispnego = (TextView) findViewById(R.id.dispnego);
+        dispcomdesp = (TextView) findViewById(R.id.dispcomdesp);
+        imageView = (ImageView) findViewById(R.id.adimage);
+        // linkimage=(TextView)findViewById(link);
 
 
+        price = getIntent().getExtras().getString("key1");
+        price = " ₹ " + price;
+        sdesp = getIntent().getExtras().getString("key2");
+        name = getIntent().getExtras().getString("key3");
+        email = getIntent().getExtras().getString("key4");
+        phone = getIntent().getExtras().getString("key5");
 
-        price =getIntent().getExtras().getString("key1");
-        price =" ₹ "+price;
-        sdesp =getIntent().getExtras().getString("key2");
-        name =getIntent().getExtras().getString("key3");
-        email=getIntent().getExtras().getString("key4");
-        phone=getIntent().getExtras().getString("key5");
+        pincode = getIntent().getExtras().getString("key6");
+        motive = getIntent().getExtras().getString("key7");
+        nego = getIntent().getExtras().getString("key8");
+        if (nego.equals("0")) {
+            nego = "NOT negotiable";
+        } else {
 
-        pincode=getIntent().getExtras().getString("key6");
-        motive=getIntent().getExtras().getString("key7");
-        nego=getIntent().getExtras().getString("key8");
-        if(nego.equals("0"))
-        {
-            nego="NOT negotiable";
-        }else {
-
-            nego="Negotiable";
+            nego = "Negotiable";
         }
-        comdesp=getIntent().getExtras().getString("key9");
-        imageurl=getIntent().getExtras().getString("key10");
+        comdesp = getIntent().getExtras().getString("key9");
+        imageurl = getIntent().getExtras().getString("key10");
 
 
         displaypri.setText(price);
@@ -87,7 +85,7 @@ public class Ad_com_info extends AppCompatActivity {
         dispmotive.setText(motive);
         dispnego.setText(nego);
         dispcomdesp.setText(comdesp);
-       // linkimage.setText(imageurl);
+        // linkimage.setText(imageurl);
 
 //
 //        ImageRequest imageRequest= new ImageRequest(imageurl, new Response.Listener<Bitmap>() {
@@ -108,7 +106,7 @@ public class Ad_com_info extends AppCompatActivity {
 //    }
 
 
-
+    }
 
     public void calling(View view)
     {
