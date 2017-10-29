@@ -68,6 +68,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         AAA.setText(currentAndroidFlavor.getsdes());
 
+
         ImageView AAAA = (ImageView) listItemView.findViewById(R.id.adimage);
 
         Picasso.with(ctx)
@@ -84,7 +85,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
 
         final String nego=currentAndroidFlavor.getNegotiable();
         final String comdesp=currentAndroidFlavor.getCompdesp();
-        //final String image=currentAndroidFlavor.getImagelink();
+        final String url=currentAndroidFlavor.getImagelink();
 
 
 
@@ -174,7 +175,7 @@ public class Adapter extends ArrayAdapter<Ad_details>
                 intent.putExtra("key7",motive);
                 intent.putExtra("key8",nego);
                 intent.putExtra("key9",comdesp);
-              //  intent.putExtra("key10",image);
+                intent.putExtra("key10",url);
 
 
 

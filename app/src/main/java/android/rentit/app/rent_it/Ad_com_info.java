@@ -16,7 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.bumptech.glide.RequestManager;
+import com.squareup.picasso.Picasso;
 
+import static android.rentit.app.rent_it.Maindisplay.ctx;
 import static android.rentit.app.rent_it.R.id.link;
 
 public class Ad_com_info extends AppCompatActivity {
@@ -28,8 +30,8 @@ public class Ad_com_info extends AppCompatActivity {
     TextView displaypri,dispsdesp,disname,disemail,disphone,dispincode,dispmotive,dispnego,dispcomdesp;
     TextView linkimage;
 
-   // String imageurl;
-  //  ImageView imageView;
+    String imageurl;
+   ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class Ad_com_info extends AppCompatActivity {
         dispmotive = (TextView) findViewById(R.id.dispmotive);
         dispnego = (TextView) findViewById(R.id.dispnego);
         dispcomdesp = (TextView) findViewById(R.id.dispcomdesp);
-       // imageView = (ImageView) findViewById(R.id.adimage);
+         imageView = (ImageView) findViewById(R.id.imageView4);
         // linkimage=(TextView)findViewById(link);
 
 
@@ -69,7 +71,7 @@ public class Ad_com_info extends AppCompatActivity {
             nego = "Negotiable";
         }
         comdesp = getIntent().getExtras().getString("key9");
-     //   imageurl = getIntent().getExtras().getString("key10");
+        imageurl = getIntent().getExtras().getString("key10");
 
 
         displaypri.setText(price);
@@ -87,7 +89,9 @@ public class Ad_com_info extends AppCompatActivity {
         dispcomdesp.setText(comdesp);
         // linkimage.setText(imageurl);
 
-
+        Picasso.with(ctx)
+                .load(imageurl)
+                .into(imageView);
 //    }
 
 
