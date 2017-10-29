@@ -3,8 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_screen4"
-    tools:context="android.rentit.app.rent_it.Profilefragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="android.rentit.app.rent_it.Profilefragment"
+    >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="USER INFORMATION"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/tvUSerinfo"
+        />
 
+    <ListView
+        android:layout_marginTop="32dp"
+        android:id="@+id/listview_userprofile"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
 
 </FrameLayout>

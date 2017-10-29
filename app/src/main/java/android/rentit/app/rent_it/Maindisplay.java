@@ -33,7 +33,7 @@ import static android.R.attr.data;
 import static android.R.attr.fingerprintAuthDrawable;
 import static android.rentit.app.rent_it.R.id.Ad_list2;
 import static android.rentit.app.rent_it.R.id.fill;
-import static com.google.android.gms.phenotype.Flag.axt;
+import static android.rentit.app.rent_it.R.id.list_item;
 
 
 public class Maindisplay extends Fragment  //implements View.OnClickListener
@@ -65,6 +65,9 @@ ImageView hai;
 
     String text="testting";
     int count=0;
+    ListView listView;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -85,10 +88,7 @@ ImageView hai;
 
         return inflater.inflate(R.layout.fragment_maindisplay, container, false);
 
-
-
     }
-
 
 
 
@@ -162,7 +162,7 @@ ImageView hai;
 
 
 
-                ListView listView = (ListView) getView().findViewById(R.id.mainlist);
+                listView = (ListView) getView().findViewById(R.id.mainlist);
                 Adapter adapter = new Adapter(ctx, com);
                 listView.setAdapter(adapter);
 

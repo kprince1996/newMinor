@@ -3,20 +3,16 @@ package android.rentit.app.rent_it;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,24 +21,24 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * Created by kprince on 29/10/17.
+ */
 
-public class Profilefragment extends Fragment {
+public class ProfileView extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
     private String userID;
-
     private ListView listView;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_profilefragment);
 
-        View view =inflater.inflate(R.layout.fragment_profilefragment, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -51,7 +47,7 @@ public class Profilefragment extends Fragment {
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
 
-        listView  = (ListView) view.findViewById(R.id.listview_userprofile);
+        listView  = (ListView) findViewById(R.id.listview_userprofile);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -82,9 +78,7 @@ public class Profilefragment extends Fragment {
         });
 
 
-        return view;
     }
-
 
     private void showData(DataSnapshot dataSnapshot) {
 
@@ -94,16 +88,15 @@ public class Profilefragment extends Fragment {
             uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
             uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
             uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
-//todo this is code to print details into profilefragment yeh fragment open hi nhi ho rha
-      //      ArrayList<String> arrayList = new ArrayList<>();
 
-//            arrayList.add(uInfo.getName());
-  //          arrayList.add(uInfo.getEmail());
-    //        arrayList.add(uInfo.getMobNo());
+            ArrayList<String> arrayList = new ArrayList<>();
 
-          //  ArrayAdapter adapter = new ArrayAdapter(this.getContext(),R.layout.fragment_profilefragment,arrayList);
-           // listView.setAdapter(adapter);
-            //todo yha tk error h
+            arrayList.add(uInfo.getName());
+            arrayList.add(uInfo.getEmail());
+            arrayList.add(uInfo.getMobNo());
+
+                ArrayAdapter adapter = new ArrayAdapter(this,R.layout.fragment_profilefragment,arrayList);
+              listView.setAdapter(adapter);
         }
 
     }
@@ -111,7 +104,7 @@ public class Profilefragment extends Fragment {
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
-                = (ConnectivityManager) this.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
@@ -121,12 +114,12 @@ public class Profilefragment extends Fragment {
         super.onStart();
 
         if(isNetworkAvailable()==false)
-        { Toast.makeText(this.getContext(), "Internet Connection is required", Toast.LENGTH_SHORT).show();
+        { Toast.makeText(this, "Internet Connection is required", Toast.LENGTH_SHORT).show();
 
         }
         else
         {
-        mAuth.addAuthStateListener(mAuthListener);
+  //          mAuth.addAuthStateListener(mAuthListener);
         }
     }
 
@@ -134,14 +127,14 @@ public class Profilefragment extends Fragment {
     public void onStop() {
         super.onStop();
         if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+    //        mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 
 
     private void toastMessage(String msg)
     {
-        Toast.makeText(this.getContext(), msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
 }

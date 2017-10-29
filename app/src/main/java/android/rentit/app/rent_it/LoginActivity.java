@@ -134,22 +134,6 @@ public class LoginActivity extends AppCompatActivity
         }
     }
 
-
- private void nextstep(Boolean nextstep)
-   {
-        if(nextstep==true)
-        {
-            Intent i = new Intent(LoginActivity.this, MainScreenActivity.class);
-
-           // i.putExtra("key1",google_name);
-            //i.putExtra("key2",google_email);
-        // i.putExtra("key3",imgurl);
-            startActivity(i);
-       }
-
-
-   }
-
      /////fragments button actions here
 
     public void createnewaccount_button (View view) {
@@ -162,4 +146,11 @@ public class LoginActivity extends AppCompatActivity
         startActivity(forgetPasswordIntent);
         }
 
+
+        public void signOut()
+        {
+            mAuth.signOut();
+            Toast.makeText(this, "signing out...", Toast.LENGTH_SHORT).show();
+
+        }
 }

@@ -1,6 +1,7 @@
 package android.rentit.app.rent_it;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 //import static android.rentit.app.rent_it.R.id.view;
 
@@ -17,10 +21,15 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSkipSignIn;
     private Button btnLogin;
 
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
 
@@ -34,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,  MainScreenActivity.class);
+          //    Intent i = new Intent(MainActivity.this,  ProfileView.class);
                 startActivity(i);
             }
         });
@@ -41,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+          Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                //Intent i = new Intent(MainActivity.this,  ProfileView.class);
                 startActivity(i);
             }
         });

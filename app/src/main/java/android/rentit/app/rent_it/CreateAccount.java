@@ -24,6 +24,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class CreateAccount extends AppCompatActivity {
@@ -33,15 +39,18 @@ public class CreateAccount extends AppCompatActivity {
     private CheckBox checkBoxShowPassword;
     private ProgressDialog progressDialog;
 
+    private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference myRef;
+
+    private static String TAG  = "Create Account";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        mAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
 
@@ -51,6 +60,9 @@ public class CreateAccount extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.edittext_password);
         btnSubmit = (Button) findViewById(R.id.btn_submit_signup_details);
         checkBoxShowPassword = (CheckBox) findViewById(R.id.checkbox_showpassword);
+
+        mAuth = FirebaseAuth.getInstance();
+
 
         //validate email & phone
 
@@ -71,6 +83,7 @@ public class CreateAccount extends AppCompatActivity {
                     if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password) || validatePassword(password) == false || validateMobileNumber(mobno) == false || validateEmailAddress(email) == false) {
                         Toast.makeText(CreateAccount.this, "Please fill all details correct", Toast.LENGTH_SHORT).show();
                     } else {
+
                         registerUser(name, mobno, email, password);
 
                     }
@@ -92,7 +105,49 @@ public class CreateAccount extends AppCompatActivity {
             }
         });
 
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null)
+                {
+                    Toast.makeText(CreateAccount.this, "signing in..", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(CreateAccount.this, "signing out..", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        };
+
+
+
+
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if(isNetworkAvailable()==false)
+        { Toast.makeText(this, "Internet Connection is required", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else{
+            mAuth.addAuthStateListener(mAuthListener);}
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+
 
     private boolean validateMobileNumber(String mob)
     {
@@ -116,7 +171,7 @@ public class CreateAccount extends AppCompatActivity {
         return true;
     }
 
-    private void registerUser(String name,String mobno,String emailAddress,String password)
+    private void registerUser(final String name, final String mobno, final String emailAddress, String password)
     {
             progressDialog.setMessage("Registering User...");
             progressDialog.show();
@@ -126,7 +181,17 @@ public class CreateAccount extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(CreateAccount.this, "Registration successful. Now login to continue", Toast.LENGTH_SHORT).show();
+
+
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    mFirebaseDatabase = FirebaseDatabase.getInstance();
+                    myRef = mFirebaseDatabase.getReference();
+                    String userID  = user.getUid();
+                    UserInformation userInformation = new UserInformation(name,emailAddress,mobno);
+                    myRef.child("users").child(userID).setValue(userInformation);
+
                     startActivity(new Intent(CreateAccount.this,LoginActivity.class));
+
                 }
                 else {
                     Log.e("Error",task.getException().toString());
@@ -145,13 +210,5 @@ public class CreateAccount extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(isNetworkAvailable()==false)
-        {
-            Toast.makeText(this, "Internet connection is required", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-    }
+
 }
