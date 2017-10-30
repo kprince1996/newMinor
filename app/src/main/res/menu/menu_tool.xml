@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    
+    tools:context=".Maindisplay" >
+
+    <item android:id="@+id/filter"
+        android:orderInCategory="1"
+        android:title="Filter"
+
+       >
+        <menu >
+            <group android:id="@+id/group3" android:checkableBehavior="single">
+                <item android:id="@+id/mobile" android:title="Mobile" />
+                <item android:id="@+id/drafter" android:title="Drafter" />
+                <item android:id="@+id/electronics" android:title="Electronics" />
+                <item android:id="@+id/labcoat" android:title="Lab coat" />
+                <item android:id="@+id/Books" android:title="Books" />
+                <item android:id="@+id/sportsItem" android:title="Sports Item" />
+                <item android:id="@+id/BikeforRent" android:title="Bike For Rent" />
+                <item android:id="@+id/pgforboys" android:title="PG for Boys" />
+            </group>
+        </menu>
+
+
+
+
+    </item>
+    <item android:id="@+id/search"
+        android:title="Search"
+
+       >
+
+        <menu >
+            <group android:id="@+id/group2" android:checkableBehavior="single">
+                <item android:id="@+id/submenu1" android:title="SubMenu No. 1" />
+                <item android:id="@+id/submenu2" android:title="SubMenu No. 2" />
+            </group>
+        </menu>
+
+
+
+
+
+        </item>
+
+    <item android:id="@+id/sort"
+
+        android:title="Sort"
+
+       >
+
+        <menu >
+            <group android:id="@+id/group1" android:checkableBehavior="single">
+                <item android:id="@+id/asc" android:title="Price high to low" />
+                <item android:id="@+id/desc" android:title="Price low to high" />
+            </group>
+        </menu>
+        </item>
+
+
+
+
+
+</menu>

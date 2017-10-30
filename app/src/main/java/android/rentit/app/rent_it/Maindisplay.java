@@ -7,7 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+//import android.support.v7.app.AlertController;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,7 +42,7 @@ import static android.rentit.app.rent_it.R.id.fill;
 import static android.rentit.app.rent_it.R.id.list_item;
 
 
-public class Maindisplay extends Fragment  //implements View.OnClickListener
+public class Maindisplay extends Fragment
 {
 
 
@@ -55,6 +61,7 @@ public class Maindisplay extends Fragment  //implements View.OnClickListener
     static Maindisplay thishai;
     String email,phone,pincode,address,compdesp,status,cat,negotiable,motive;
     String imagelink;
+    RecyclerView.LayoutManager mLayoutManager;
 
 
     Bitmap image;
@@ -66,6 +73,7 @@ ImageView hai;
     String text="testting";
     int count=0;
     ListView listView;
+   // RecyclerView listView;
 
 
     @Override
@@ -86,8 +94,16 @@ ImageView hai;
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);
         backgroundTask.execute();
 
-        return inflater.inflate(R.layout.fragment_maindisplay, container, false);
+    View v=inflater.inflate(R.layout.fragment_maindisplay, container, false);
+   Toolbar toolbar= (Toolbar) v.findViewById(R.id.toolbar);
+        toolbar.setTitle("Rent it");
+        //error a rahi hai kyu reason do
+        toolbar.inflateMenu(R.menu.menu_tool);
+      //  setSupportActionBar(toolbar);
+        PopupMenu popup = new PopupMenu( ctx,v);
+        popup.getMenuInflater().inflate(R.menu.menu_tool, popup.getMenu());
 
+        return v;
     }
 
 
@@ -162,8 +178,10 @@ ImageView hai;
 
 
 
-                listView = (ListView) getView().findViewById(R.id.mainlist);
+               listView = (ListView) getView().findViewById(R.id.mainlist);
+               // listView= (RecyclerView) getView().findViewById(R.id.mainlist);
                 Adapter adapter = new Adapter(ctx, com);
+            //  listView.setLayoutManager(new LinearLayoutManager(ctx));
                 listView.setAdapter(adapter);
 
 
@@ -181,8 +199,6 @@ ImageView hai;
 
 
     }
-
-
 
 
 
@@ -228,6 +244,9 @@ ImageView hai;
 //
 //        }
 //    }
+
+
+
 }
 
 
