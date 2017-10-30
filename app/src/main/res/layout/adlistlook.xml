@@ -27,21 +27,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="price"
+            android:textStyle="bold"
             android:layout_margin="10dp"
             android:id="@+id/price"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="link"
-            android:layout_margin="10dp"
-            android:id="@+id/link"
-            />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="desp"
+            android:textStyle="bold"
+
             android:layout_margin="10dp"
             android:id="@+id/desp"
             />

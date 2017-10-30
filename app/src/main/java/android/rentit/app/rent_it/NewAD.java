@@ -28,6 +28,7 @@ import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -46,6 +47,7 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     ArrayAdapter<CharSequence> adapter;
 
     //
+    static int imagekhase;
     private ImageView Imgcamera,Imgselected,Imgstorage;
     private static final int IMG_REQUEST=777;
 
@@ -62,9 +64,11 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
 
     //
 
-
+    File file;
+    Uri fileUri;
     //Image request code
     private int PICK_IMAGE_REQUEST = 1;
+    private static final int CAM_REQUEST = 1313;
 
     //storage permission code
     private static final int STORAGE_PERMISSION_CODE = 123;
@@ -73,7 +77,7 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     private Bitmap bitmap;
 
     //Uri to store the image uri
-    private Uri filePath;
+    private Uri filePath,filepath2;
     public static final String UPLOAD_URL = "http://muscleuptk.000webhostapp.com/MinorProject/upload.php";
 
 
@@ -147,14 +151,17 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         {
 
             case R.id.storagepic:
-                //imagekhase=1;
+                imagekhase=1;
                 showFileChooser();
                 break;
 
             case R.id.camerapic:
-//                imagekhase=0;
-//                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(intent,0);
+                 imagekhase=0;
+                Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                startActivityForResult(intent,CAM_REQUEST);
+
                 break;
 
 
@@ -194,7 +201,19 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         //getting name for the image
 
         //getting the actual path of the image
-        String path = getPath(filePath);
+        String path = "";
+        if(imagekhase==1)
+        {
+
+
+            path=getPath(filePath);
+        }
+        else if(imagekhase==0){
+           path= getRealPathFromURI(filepath2);
+
+        }
+
+
 
         //Uploading code
         try {
@@ -259,7 +278,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null)
+        {
             filePath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
@@ -273,7 +293,18 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
                 e.printStackTrace();
             }
         }
-    }
+        if(requestCode==CAM_REQUEST  )
+        {
+            filepath2 = data.getData();
+            bitmap=(Bitmap)data.getExtras().get("data");
+            Imgselected.setImageBitmap(bitmap);
+            Imgselected.setVisibility(View.VISIBLE);
+            Imgstorage.setVisibility(View.GONE);
+            Imgcamera.setVisibility(View.GONE);
+        }
+
+
+        }
 
 
     //method to get the file path from uri
@@ -310,5 +341,19 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
     }
 
-
+    public String getRealPathFromURI(Uri contentUri)
+    {
+        try
+        {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            Cursor cursor = managedQuery(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }
+        catch (Exception e)
+        {
+            return contentUri.getPath();
+        }
+    }
 }
