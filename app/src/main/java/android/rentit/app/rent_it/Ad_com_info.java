@@ -19,7 +19,6 @@ import com.bumptech.glide.RequestManager;
 import com.squareup.picasso.Picasso;
 
 import static android.rentit.app.rent_it.Maindisplay.ctx;
-import static android.rentit.app.rent_it.R.id.link;
 
 public class Ad_com_info extends AppCompatActivity {
 
