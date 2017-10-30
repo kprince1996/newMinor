@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,7 +33,12 @@ public class ProfileView extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
     private String userID;
+
     private ListView listView;
+
+    private EditText editTextName;
+    private  EditText editTextEmail;
+    private  EditText editTextMobno;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,10 +50,15 @@ public class ProfileView extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
 
+        editTextName = (EditText) findViewById(R.id.editText_nameDetails);
+        editTextEmail = (EditText) findViewById(R.id.editText_emailDetails);
+        editTextMobno = (EditText) findViewById(R.id.editText_contactDetails);
+
+
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
 
-        listView  = (ListView) findViewById(R.id.listview_userprofile);
+        //listView  = (ListView) findViewById(R.id.listview_userprofile);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -89,14 +100,18 @@ public class ProfileView extends AppCompatActivity {
             uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
             uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
 
-            ArrayList<String> arrayList = new ArrayList<>();
+           // ArrayList<String> arrayList = new ArrayList<>();
 
-            arrayList.add(uInfo.getName());
-            arrayList.add(uInfo.getEmail());
-            arrayList.add(uInfo.getMobNo());
+            //arrayList.add(uInfo.getName());
+            //arrayList.add(uInfo.getEmail());
+            //arrayList.add(uInfo.getMobNo());
 
-                ArrayAdapter adapter = new ArrayAdapter(this,R.layout.fragment_profilefragment,arrayList);
-              listView.setAdapter(adapter);
+              //  ArrayAdapter adapter = new ArrayAdapter(this,R.layout.fragment_profilefragment,arrayList);
+              //listView.setAdapter(adapter);
+
+            editTextName.setText(uInfo.getName());
+            editTextEmail.setText(uInfo.getEmail());
+            editTextMobno.setText(uInfo.getMobNo());
         }
 
     }
