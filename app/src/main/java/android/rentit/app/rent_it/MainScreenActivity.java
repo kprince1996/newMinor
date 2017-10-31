@@ -91,17 +91,17 @@ public class MainScreenActivity extends AppCompatActivity {
                         break;
                     case R.id.tab_chat:
 
-
-                        Fragment frag11;
-
-
-                        Chatfragment frag111 = new Chatfragment();
-                        frag11 = frag111;
-
-                        FragmentManager fm111 = getSupportFragmentManager();
-
-                        FragmentTransaction ft111 = fm111.beginTransaction();
-                        ft111.replace(R.id.fragment_switch2, frag11).commit();
+//                        getFragmentManager().popBackStack();
+//
+//                        Fragment frag11;
+//
+//
+//                        Chatfragment frag111 = new Chatfragment();
+//                        frag11 = frag111;
+//
+//                        FragmentManager fm111 = getSupportFragmentManager();
+//                        FragmentTransaction ft111 = fm111.beginTransaction();
+//                        ft111.replace(R.id.fragment_switch2, frag11).commit();
 
                         break;
                     case R.id.tab_camera:
