@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,6 +37,10 @@ public class Profilefragment extends Fragment {
 
     private ListView listView;
 
+    private EditText editTextName;
+    private  EditText editTextEmail;
+    private  EditText editTextMobno;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +56,12 @@ public class Profilefragment extends Fragment {
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
 
-        listView  = (ListView) view.findViewById(R.id.listview_userprofile);
+
+        editTextName = (EditText) view.findViewById(R.id.editText_nameDetails);
+        editTextEmail = (EditText) view.findViewById(R.id.editText_emailDetails);
+        editTextMobno = (EditText) view.findViewById(R.id.editText_contactDetails);
+
+        // listView  = (ListView) view.findViewById(R.id.listview_userprofile);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -72,7 +82,21 @@ public class Profilefragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                showData(dataSnapshot);
+
+
+                for(DataSnapshot ds:dataSnapshot.getChildren())
+                {
+                    UserInformation uInfo = new UserInformation();
+                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
+                    uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
+                    uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
+
+                    editTextName.setText(uInfo.getName());
+                    editTextEmail.setText(uInfo.getEmail());
+                    editTextMobno.setText(uInfo.getMobNo());
+
+                }
+                //showData(dataSnapshot);
             }
 
             @Override
@@ -86,7 +110,7 @@ public class Profilefragment extends Fragment {
     }
 
 
-    private void showData(DataSnapshot dataSnapshot) {
+    /*private void showData(DataSnapshot dataSnapshot) {
 
         for(DataSnapshot ds:dataSnapshot.getChildren())
         {
@@ -94,19 +118,14 @@ public class Profilefragment extends Fragment {
             uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
             uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
             uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
-//todo this is code to print details into profilefragment yeh fragment open hi nhi ho rha
-      //      ArrayList<String> arrayList = new ArrayList<>();
 
-//            arrayList.add(uInfo.getName());
-  //          arrayList.add(uInfo.getEmail());
-    //        arrayList.add(uInfo.getMobNo());
+            editTextName.setText(uInfo.getName());
+            editTextEmail.setText(uInfo.getEmail());
+            editTextMobno.setText(uInfo.getMobNo());
 
-          //  ArrayAdapter adapter = new ArrayAdapter(this.getContext(),R.layout.fragment_profilefragment,arrayList);
-           // listView.setAdapter(adapter);
-            //todo yha tk error h
         }
 
-    }
+    }*/
 
 
     private boolean isNetworkAvailable() {

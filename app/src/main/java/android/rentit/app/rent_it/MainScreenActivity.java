@@ -135,6 +135,7 @@ public class MainScreenActivity extends AppCompatActivity {
 
                         // ft.addToBackStack(null).commit();
 
+                      //  startActivity(new Intent(getBaseContext(),ProfileView.class));
                         break;
 
                 }
