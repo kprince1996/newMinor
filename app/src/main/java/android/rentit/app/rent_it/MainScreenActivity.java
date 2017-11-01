@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
@@ -91,6 +92,7 @@ public class MainScreenActivity extends AppCompatActivity {
                         break;
                     case R.id.tab_chat:
 
+
 //                        getFragmentManager().popBackStack();
 //
 //                        Fragment frag11;
@@ -102,6 +104,31 @@ public class MainScreenActivity extends AppCompatActivity {
 //                        FragmentManager fm111 = getSupportFragmentManager();
 //                        FragmentTransaction ft111 = fm111.beginTransaction();
 //                        ft111.replace(R.id.fragment_switch2, frag11).commit();
+
+
+                       /* Fragment frag11;
+
+
+                        Chatfragment frag111 = new Chatfragment();
+                        frag11 = frag111;
+
+                        FragmentManager fm111 = getSupportFragmentManager();
+
+                        FragmentTransaction ft111 = fm111.beginTransaction();
+                        ft111.replace(R.id.fragment_switch2, frag11).commit(); */
+
+                        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                            // if logged in redirect the user to user listing activity
+                         //   UserListingActivity.startActivity(Chatfragment.class);
+                            Intent i2 = new Intent(MainScreenActivity.this, UserListingActivity.class);
+                            startActivity(i2);
+                        } else {
+                            // otherwise redirect the user to login activity
+                           // LoginActivity1.startActivity(Chatfragment.class);
+                            Intent i2 = new Intent(MainScreenActivity.this,LoginActivity3.class);
+                            startActivity(i2);
+                        }
+
 
                         break;
                     case R.id.tab_camera:

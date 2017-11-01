@@ -4,8 +4,17 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-permission android:name="android.permission.CALL_PHONE"  />
-    <permission android:name="android.permission.READ_EXTERNAL_STORAGE" />>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -28,8 +37,16 @@
         <activity android:name=".Ad_com_info" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".ForgetPassword" />
-        <activity android:name=".test2"/>
-        <activity android:name=".ProfileView"/>
+        <activity android:name=".test2" />
+        <activity android:name=".ProfileView" />
+        <activity android:name=".UserListingActivity" />
+        <activity android:name=".LoginActivity3" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".RegisterActivity"/>
+
+
+
+
     </application>
 
 </manifest>
