@@ -46,7 +46,7 @@ public class MainScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-
+        nv = (NavigationView)findViewById(R.id.vipulnav);
 
 //        //for responce from database
 //        Background_jsonresponce backgroundTask=new Background_jsonresponce(this);
@@ -54,14 +54,14 @@ public class MainScreenActivity extends AppCompatActivity {
 
         //
         //for navigation drawer
-        //
-       // drawerLayout = (DrawerLayout) findViewById(R.id.mainscreendrawer);
-       // actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
-
-        //drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        //actionBarDrawerToggle.syncState();
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //navbar
+//        //
+//        drawerLayout=(DrawerLayout)findViewById(R.id.mainscreendrawer);
+//        actionBarDrawerToggle =new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
+//
+//        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+//        actionBarDrawerToggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        //navbar
 
         //bottom bar
       //  messageview = (TextView) findViewById(R.id.messageview);
@@ -69,7 +69,8 @@ public class MainScreenActivity extends AppCompatActivity {
 
         // We're doing nothing with this listener here this time. Check example usage
         // from ThreeTabsActivity on how to use it.
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener()
+                                         {
             @Override
             public void onTabSelected(@IdRes int tabId) {
 
@@ -169,30 +170,39 @@ public class MainScreenActivity extends AppCompatActivity {
 
 
             }
-        });
+        }
+
+        //
+
+
+
+        );
         //
 
 // above code for bottom
 
-        //nv = (NavigationView)findViewById(R.id.mainscreendrawer);
-        /*
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case(R.id.action_settings):
-                        Intent in = new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(in);
-                }
-                return true;
-            }
-        });*/
+//
+//
+
 
 
         //loading data
         ///  LoadingData();
         //
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case(R.id.action_settings):
+                        Intent in = new Intent(getApplicationContext(),Contactus.class);
+                        startActivity(in);
+                }
+                return true;
+            }
+        });
     }
+
 
 
 
