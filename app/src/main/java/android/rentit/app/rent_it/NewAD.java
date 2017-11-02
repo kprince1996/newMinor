@@ -158,8 +158,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
             case R.id.camerapic:
                  imagekhase=0;
                 Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+              //  File file=getfile();
+                //intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
                 startActivityForResult(intent,CAM_REQUEST);
 
                 break;
@@ -244,19 +244,6 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         }
 
 
-
-
-
-
-
-       /*
-        //uploadimage();
-        Toast.makeText(this,image+"vipul", Toast.LENGTH_SHORT).show();
-        BackgroundSubmitAd log2=new BackgroundSubmitAd(this);
-        log2.execute(s1,s2,s3,s4,s5,s8,s9,s10,s6,image);
-        //log2.execute();
-        //log2.execute(s1,s2,s3,s4,s5,s6,s8,s9,s10,s11);
-        */
     }
 
 
@@ -293,9 +280,12 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
                 e.printStackTrace();
             }
         }
-        if(requestCode==CAM_REQUEST  )
+       else if(requestCode==CAM_REQUEST && resultCode == RESULT_OK  )
         {
-            filepath2 = data.getData();
+
+            Bundle bundle= data.getExtras();
+
+
             bitmap=(Bitmap)data.getExtras().get("data");
             Imgselected.setImageBitmap(bitmap);
             Imgselected.setVisibility(View.VISIBLE);
@@ -355,5 +345,20 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         {
             return contentUri.getPath();
         }
+    }
+
+
+    private File getfile()
+    {
+
+        File folder=new File("sdcard/rent_it");
+
+        if(!folder.exists())
+        {
+folder.mkdir();
+        }
+
+File image_file=new File(folder,"cam_image.jpg");
+        return image_file;
     }
 }
