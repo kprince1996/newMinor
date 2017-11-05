@@ -197,8 +197,8 @@ public class MainScreenActivity extends AppCompatActivity {
                 switch (menuItem.getItemId())
                 {
                     case(R.id.Contact):
-                        Intent in = new Intent(getApplicationContext(),Contactus.class);
-                        startActivity(in);
+                      //  Intent in = new Intent(getApplicationContext(),Contactus.class);
+                       // startActivity(in);
                 }
                 return true;
             }

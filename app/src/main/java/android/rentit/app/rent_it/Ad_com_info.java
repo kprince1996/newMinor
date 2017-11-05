@@ -16,13 +16,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.bumptech.glide.RequestManager;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import static android.rentit.app.rent_it.Maindisplay.ctx;
 
 public class Ad_com_info extends AppCompatActivity {
 
-    Button call;
+    Button call,chat;
     String price,sdesp,name,email,phone,pincode,motive,nego,comdesp;
 
 
@@ -38,6 +39,7 @@ public class Ad_com_info extends AppCompatActivity {
         setContentView(R.layout.activity_ad_com_info);
 
         call = (Button) findViewById(R.id.callingbutton);
+        chat=(Button)findViewById(R.id.chatseller);
 
         displaypri = (TextView) findViewById(R.id.displayprice);
         dispsdesp = (TextView) findViewById(R.id.displaysdesp);
@@ -103,5 +105,23 @@ public class Ad_com_info extends AppCompatActivity {
         intent.setData(Uri.parse(c));
         startActivity(intent);
     }
+    public void chatting(View view)
+    {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            // if logged in redirect the user to user listing activity
+            //   UserListingActivity.startActivity(Chatfragment.class);
+            Intent i2 = new Intent(Ad_com_info.this, UserListingActivity.class);
+            startActivity(i2);
+        } else {
+            // otherwise redirect the user to login activity
+            // LoginActivity1.startActivity(Chatfragment.class);
+            Intent i2 = new Intent(Ad_com_info.this,LoginActivity3.class);
+            startActivity(i2);
+        }
+
+
+
+    }
+
 
 }

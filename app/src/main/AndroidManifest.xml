@@ -4,15 +4,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE"  />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-feature android:name="android.hardware.camera2"></uses-feature>
+    <uses-feature android:name="android.hardware.camera2" ></uses-feature>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+  <permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -40,11 +45,11 @@
         <activity android:name=".UserListingActivity" />
         <activity android:name=".LoginActivity3" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".Contactus"
-            android:label="@string/title_activity_contactus"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".RegisterActivity"/>
+
+
+
+
     </application>
 
 </manifest>

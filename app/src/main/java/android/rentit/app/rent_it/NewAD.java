@@ -313,6 +313,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         cursor.close();
 
         return path;
+
+       //     7503237942  BUA
     }
 
 
@@ -322,7 +324,8 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             return;
 
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE))
+        {
             //If the user has denied the permission previously your code will come to this block
             //Here you can explain why you need this permission
             //Explain here why you need this permission

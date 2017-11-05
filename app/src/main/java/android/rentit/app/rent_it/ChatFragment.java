@@ -29,7 +29,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 
 
-public class ChatFragment extends Fragment implements ChatContract.View, TextView.OnEditorActionListener {
+ public class ChatFragment extends Fragment implements ChatContract.View, TextView.OnEditorActionListener {
     private RecyclerView mRecyclerViewChat;
     private EditText mETxtMessage;
 
@@ -169,3 +169,4 @@ public class ChatFragment extends Fragment implements ChatContract.View, TextVie
         }
     }
 }
+
