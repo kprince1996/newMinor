@@ -117,6 +117,8 @@ public class Ad_com_info extends AppCompatActivity {
             // LoginActivity1.startActivity(Chatfragment.class);
             Intent i2 = new Intent(Ad_com_info.this,LoginActivity3.class);
             startActivity(i2);
+           // Intent i2 = new Intent(Ad_com_info.this,LoginActivity3.class);
+           // startActivity(i2);
         }
 
 
