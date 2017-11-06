@@ -43,12 +43,16 @@ public class LoginActivity3 extends AppCompatActivity {
         // set the toolbar
         setSupportActionBar(mToolbar);
 
+
+
         // set the login screen fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout_content_login,
                 LoginFragment.newInstance(),
                 LoginFragment.class.getSimpleName());
         fragmentTransaction.commit();
+
+
     }
 }
 

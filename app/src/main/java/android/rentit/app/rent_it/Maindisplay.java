@@ -102,7 +102,7 @@ ImageView hai;
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);
         backgroundTask.execute();
 
-/*
+
    Toolbar toolbar= (Toolbar) v.findViewById(R.id.toolbar);
         toolbar.setTitle("Rent it");
         //error a rahi hai kyu reason do
@@ -110,7 +110,7 @@ ImageView hai;
       //  setSupportActionBar(toolbar);
         PopupMenu popup = new PopupMenu( ctx,v);
         popup.getMenuInflater().inflate(R.menu.menu_tool, popup.getMenu());
-*/
+
         return v;
     }
 
