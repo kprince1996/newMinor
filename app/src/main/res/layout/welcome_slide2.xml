@@ -15,7 +15,7 @@
         <ImageView
             android:layout_height="@dimen/img_wdith_height"
             android:layout_width="@dimen/img_wdith_height"
-            android:src="@drawable/chalk"
+            android:src="@drawable/screen2"
             android:scaleType="fitXY"
             />
 

@@ -15,7 +15,7 @@
         <ImageView
             android:layout_height="@dimen/img_wdith_height"
             android:layout_width="@dimen/img_wdith_height"
-            android:src="@drawable/raise"
+            android:src="@drawable/screen4"
             android:scaleType="fitXY"
 
             />
@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:text="@string/slide_4_title"
             android:textSize="@dimen/slide_title"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             />

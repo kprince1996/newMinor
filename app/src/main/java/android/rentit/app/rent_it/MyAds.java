@@ -14,6 +14,12 @@ import static android.rentit.app.rent_it.R.id.container;
 
 public class MyAds extends Fragment {
 
+    public static MyAds newInstance()
+    {
+        MyAds myAds =new MyAds();
+        return  myAds;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

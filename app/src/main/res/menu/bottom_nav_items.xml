@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/menu_home"
+            android:title="Home"
+            android:icon="@drawable/ic_menu_gallery"
+            />
+        <item
+            android:id="@+id/menu_search"
+            android:title="Search"
+            android:icon="@drawable/ic_menu_camera"
+            />
+
+        <item
+            android:id="@+id/menu_notifications"
+            android:title="Notification"
+            android:icon="@drawable/ic_menu_slideshow" />
+        <item
+            android:id="@+id/menu_share"
+            android:title="Share"
+            android:icon="@drawable/ic_menu_manage" />
+        <item
+            android:id="@+id/menu_test"
+            android:title="last tab"
+            android:icon="@drawable/ic_menu_share" />
+
+
+</menu>
