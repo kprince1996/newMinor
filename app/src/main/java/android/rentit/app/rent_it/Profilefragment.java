@@ -87,7 +87,7 @@ public class Profilefragment extends Fragment {
                 for(DataSnapshot ds:dataSnapshot.getChildren())
                 {
                     UserInformation uInfo = new UserInformation();
-                    uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
+                  //  uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
                     uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
                     uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
 

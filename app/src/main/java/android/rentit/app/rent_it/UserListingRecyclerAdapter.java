@@ -38,10 +38,14 @@ public class UserListingRecyclerAdapter extends RecyclerView.Adapter<UserListing
         //  Toast.makeText(this, " "+position, Toast.LENGTH_SHORT).show();
         Log.e("user","kya hai");
         // Log.e("user wala",user.email);
-        //    String alphabet = user.email.substring(0,5);
-        //  Log.e("alphabet",alphabet);
+            String username = user.email;
+            String usrname=username.replaceAll("@gmail.com","");
+          Log.e("usrname",usrname);
+
+
+
         holder.txtUsername.setText(user.email);
-        // holder.txtUserAlphabet.setText(user.email.substring(0));
+     //    holder.txtUserAlphabet.setText(usrname);
         //  Log.e("alphabet",alphabet);
     }
 

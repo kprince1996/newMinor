@@ -95,7 +95,7 @@ import java.util.ArrayList;
     }
 
     private void init() {
-        Toast.makeText(getContext(), "15", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getContext(), "15", Toast.LENGTH_SHORT).show();
         mProgressDialog = new ProgressDialog(getActivity());
         mProgressDialog.setTitle(getString(R.string.loading));
         mProgressDialog.setMessage(getString(R.string.please_wait));
