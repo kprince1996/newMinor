@@ -31,7 +31,7 @@ public class UserListingRecyclerAdapter extends RecyclerView.Adapter<UserListing
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_all_user_listing, parent, false);
         return new ViewHolder(view);
     }
-
+//
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = mUsers.get(position);
