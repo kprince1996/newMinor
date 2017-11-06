@@ -29,17 +29,26 @@ import java.util.ArrayList;
 
 public class Profilefragment extends Fragment {
 
+
+
+
+
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
     private String userID;
-
     private ListView listView;
-
     private EditText editTextName;
     private  EditText editTextEmail;
     private  EditText editTextMobno;
+
+
+    public static Profilefragment newInstance()
+    {
+        Profilefragment profilefragment = new Profilefragment();
+        return profilefragment;
+    }
 
 
     @Override
@@ -48,7 +57,7 @@ public class Profilefragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view =inflater.inflate(R.layout.fragment_profilefragment, container, false);
-
+/*
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
@@ -105,7 +114,7 @@ public class Profilefragment extends Fragment {
             }
         });
 
-
+*/
         return view;
     }
 
@@ -127,6 +136,7 @@ public class Profilefragment extends Fragment {
 
     }*/
 
+    /*
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
@@ -162,5 +172,6 @@ public class Profilefragment extends Fragment {
     {
         Toast.makeText(this.getContext(), msg, Toast.LENGTH_SHORT).show();
     }
+    */
 
 }

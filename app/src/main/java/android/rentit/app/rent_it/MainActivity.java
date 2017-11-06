@@ -30,7 +30,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
 
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser()!=null)
+                {
+                    startActivity(new Intent(MainActivity.this,MainScreenActivity.class));
+                }
+            }
+        };
 
 
         btnSkipSignIn  = (Button)findViewById(R.id.btn_skip_signin);
@@ -63,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this,CreateAccount.class);
         startActivity(i);
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
 }

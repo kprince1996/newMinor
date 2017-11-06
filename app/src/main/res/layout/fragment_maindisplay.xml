@@ -21,10 +21,6 @@
         android:title="Rent it"
         />
 
-
-
-
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,13 +28,6 @@
         android:id="@+id/mainlist"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
-
-
-
     </ListView>
-
-
-
-
 
 </LinearLayout>

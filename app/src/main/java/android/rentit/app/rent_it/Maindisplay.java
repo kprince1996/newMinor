@@ -76,6 +76,12 @@ ImageView hai;
    // RecyclerView listView;
 
 
+    public  static Maindisplay newInstance()
+        {
+            Maindisplay maindisplay = new Maindisplay();
+            return  maindisplay;
+        }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -88,13 +94,15 @@ ImageView hai;
 //
 //        ass.setOnClickListener(this);
 //        desc.setOnClickListener(this);
-        ctx=getContext();
+
+        View v=inflater.inflate(R.layout.fragment_maindisplay, container, false);
+       /* ctx=getContext();
        // thishai=this;
         String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);
         backgroundTask.execute();
 
-    View v=inflater.inflate(R.layout.fragment_maindisplay, container, false);
+
    Toolbar toolbar= (Toolbar) v.findViewById(R.id.toolbar);
         toolbar.setTitle("Rent it");
         //error a rahi hai kyu reason do
@@ -102,7 +110,7 @@ ImageView hai;
       //  setSupportActionBar(toolbar);
         PopupMenu popup = new PopupMenu( ctx,v);
         popup.getMenuInflater().inflate(R.menu.menu_tool, popup.getMenu());
-
+*/
         return v;
     }
 
@@ -126,10 +134,7 @@ ImageView hai;
 
             while(count<jsonArray.length())
             {
-
-
                 JSONObject ob = jsonArray.getJSONObject(count);
-
 
                 price = ob.getString("price");
                 smalldesp=ob.getString("shortdesp");
