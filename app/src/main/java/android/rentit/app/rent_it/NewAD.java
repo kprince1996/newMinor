@@ -283,7 +283,6 @@ public class NewAD extends AppCompatActivity implements View.OnClickListener
        else if(requestCode==CAM_REQUEST && resultCode == RESULT_OK  )
         {
 
-            Bundle bundle= data.getExtras();
 
 
             bitmap=(Bitmap)data.getExtras().get("data");

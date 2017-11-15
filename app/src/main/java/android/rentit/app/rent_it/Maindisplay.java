@@ -96,7 +96,7 @@ ImageView hai;
 //        desc.setOnClickListener(this);
 
         View v=inflater.inflate(R.layout.fragment_maindisplay, container, false);
-       ctx=getContext();
+        ctx=getContext();
         thishai=this;
         String source="http://muscleuptk.000webhostapp.com/MinorProject/jsoncompletetable_complaint_info.php";
         Background_jsonresponce backgroundTask = new Background_jsonresponce(ctx,this,source);

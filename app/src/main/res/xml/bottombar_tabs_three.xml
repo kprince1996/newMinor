@@ -12,10 +12,7 @@
         id="@+id/tab_camera"
         icon="@mipmap/ic_camera_black_24dp"
         title="Sell" />
-    <tab
-        id="@+id/tab_myads"
-        icon="@mipmap/ic_toc_black_24dp"
-        title="MyAds" />
+
     <tab
         id="@+id/tab_profile"
         icon="@mipmap/ic_person_black_24dp"

@@ -140,20 +140,20 @@ public class MainScreenActivity extends AppCompatActivity {
 
 
                         break;
-                    case R.id.tab_myads:
-
-                        Fragment frag33;
-                        MyAds frag333 = new MyAds();
-                        frag33 = frag333;
-
-                        FragmentManager fm333 = getSupportFragmentManager();
-
-                        FragmentTransaction ft333 = fm333.beginTransaction();
-                        ft333.replace(R.id.fragment_switch2, frag33).commit();
-
-                        break;
+//                    case R.id.tab_myads:
+//
+//                        Fragment frag33;
+//                        MyAds frag333 = new MyAds();
+//                        frag33 = frag333;
+//
+//                        FragmentManager fm333 = getSupportFragmentManager();
+//
+//                        FragmentTransaction ft333 = fm333.beginTransaction();
+//                        ft333.replace(R.id.fragment_switch2, frag33).commit();
+//
+//                        break;
                     case R.id.tab_profile:
-                        Fragment frag;
+          /*              Fragment frag;
                         Profilefragment frag1 = new Profilefragment();
                         frag = frag1;
 
@@ -163,8 +163,8 @@ public class MainScreenActivity extends AppCompatActivity {
                         ft.replace(R.id.fragment_switch2, frag).commit();
 
                         // ft.addToBackStack(null).commit();
-
-                      //  startActivity(new Intent(getBaseContext(),ProfileView.class));
+*/
+                        startActivity(new Intent(getBaseContext(),ProfileView.class));
                         break;
 
                 }
