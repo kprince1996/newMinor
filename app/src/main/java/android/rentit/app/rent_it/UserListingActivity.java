@@ -25,16 +25,16 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     private LogoutPresenter mLogoutPresenter;
 
     public static void startActivity(Context context) {
-        Toast.makeText(context, "30", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context, "30", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, UserListingActivity.class);
         context.startActivity(intent);
     }
 
     public static void startActivity(Context context, int flags) {
-        Toast.makeText(context, "31", Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(context, "31", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, UserListingActivity.class);
         intent.setFlags(flags);
-        Toast.makeText(context, "32", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(context, "32", Toast.LENGTH_SHORT).show();
         context.startActivity(intent);
     }
 
@@ -55,22 +55,22 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     private void init() {
         // set the toolbar
         setSupportActionBar(mToolbar);
-        Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
         // set the view pager adapter
         UserListingPagerAdapter userListingPagerAdapter = new UserListingPagerAdapter(getSupportFragmentManager());
         mViewPagerUserListing.setAdapter(userListingPagerAdapter);
-        Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
         // attach tab layout with view pager
         mTabLayoutUserListing.setupWithViewPager(mViewPagerUserListing);
-        Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
         mLogoutPresenter = new LogoutPresenter(this);
-        Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_user_listing, menu);
-        Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -79,7 +79,7 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
         switch (item.getItemId()) {
             case R.id.action_logout:
                 logout();
-                Toast.makeText(this, "6", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "6", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -113,7 +113,7 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
 
     @Override
     public void onLogoutFailure(String message) {
-        Toast.makeText(this, "7", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "7", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

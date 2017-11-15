@@ -58,33 +58,33 @@ import java.util.ArrayList;
     public void onStart() {
         super.onStart();
         // Toast.makeText(this, "15", Toast.LENGTH_SHORT).show();
-        Toast.makeText(getContext(), "16", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getContext(), "16", Toast.LENGTH_SHORT).show();
         EventBus.getDefault().register(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Toast.makeText(getContext(), "17", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getContext(), "17", Toast.LENGTH_SHORT).show();
         EventBus.getDefault().unregister(this);
-        Toast.makeText(getContext(), "18", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), "18", Toast.LENGTH_SHORT).show();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Toast.makeText(getContext(), "19", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), "19", Toast.LENGTH_SHORT).show();
         View fragmentView = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        Toast.makeText(getContext(), "17", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), "17", Toast.LENGTH_SHORT).show();
         bindViews(fragmentView);
         return fragmentView;
     }
 
     private void bindViews(View view) {
-        Toast.makeText(getContext(), "20", Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getContext(), "20", Toast.LENGTH_SHORT).show();
         mRecyclerViewChat = (RecyclerView) view.findViewById(R.id.recycler_view_chat);
-        Toast.makeText(getContext(), "21", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), "21", Toast.LENGTH_SHORT).show();
         mETxtMessage = (EditText) view.findViewById(R.id.edit_text_message);
     }
 
@@ -100,9 +100,9 @@ import java.util.ArrayList;
         mProgressDialog.setTitle(getString(R.string.loading));
         mProgressDialog.setMessage(getString(R.string.please_wait));
         mProgressDialog.setIndeterminate(true);
-        Toast.makeText(getContext(), "22", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getContext(), "22", Toast.LENGTH_SHORT).show();
         mETxtMessage.setOnEditorActionListener(this);
-        Toast.makeText(getContext(), "23", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), "23", Toast.LENGTH_SHORT).show();
         mChatPresenter = new ChatPresenter(this);
         mChatPresenter.getMessage(FirebaseAuth.getInstance().getCurrentUser().getUid(),
                 getArguments().getString(Constants.ARG_RECEIVER_UID));

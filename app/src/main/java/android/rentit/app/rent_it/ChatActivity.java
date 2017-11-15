@@ -50,28 +50,28 @@ public class ChatActivity extends AppCompatActivity {
         mToolbar.setTitle(getIntent().getExtras().getString(Constants.ARG_RECEIVER));
 
         // set the register screen fragment
-        Toast.makeText(this, "9", Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(this, "9", Toast.LENGTH_SHORT).show();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout_content_chat,
                 ChatFragment.newInstance(getIntent().getExtras().getString(Constants.ARG_RECEIVER),
                         getIntent().getExtras().getString(Constants.ARG_RECEIVER_UID),
                         getIntent().getExtras().getString(Constants.ARG_FIREBASE_TOKEN)),
                 ChatFragment.class.getSimpleName());
-        Toast.makeText(this, "10", Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(this, "10", Toast.LENGTH_SHORT).show();
         fragmentTransaction.commit();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(this, "11", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "11", Toast.LENGTH_SHORT).show();
         FirebaseChatMainApp.setChatActivityOpen(true);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(this, "12", Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "12", Toast.LENGTH_SHORT).show();
         FirebaseChatMainApp.setChatActivityOpen(false);
     }
 }
