@@ -33,6 +33,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnConnectionFailedListener,
@@ -54,9 +56,6 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private GoogleApiClient mGoogleApiClient;
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
-
 
 
     @Override
@@ -136,6 +135,13 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!(task.isSuccessful())) {
                             Toast.makeText(LoginActivity.this, "Login problem. Please try again", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(LoginActivity.this,MainScreenActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
 
                         }
                     }
@@ -223,6 +229,9 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "name : "+user.getDisplayName()+"\nemail"+user.getEmail()+"\nphone"+user.getPhoneNumber() , Toast.LENGTH_SHORT).show();
+                            registerUser(user);
+
                             startActivity(new Intent(LoginActivity.this,MainScreenActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
@@ -238,6 +247,22 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
                 });
     }
     // [END auth_with_google]
+
+    private void registerUser(FirebaseUser user)
+    {
+                    String userID  = user.getUid();
+                    UserInformation userInformation = new UserInformation(user.getDisplayName(),user.getEmail(),user.getPhoneNumber());
+
+                    if(user.getPhoneNumber()==null)
+                        userInformation.setMobNo(""+0);
+                    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = mFirebaseDatabase.getReference();
+                    myRef.child("users").child(userID).setValue(userInformation);
+
+        //            startActivity(new Intent(CreateAccount.this,LoginActivity.class));
+
+
+    }
 
     // [START signin]
     private void signIn() {
@@ -277,4 +302,8 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
         //  revokeAccess();
         // }
     }
+
+
+
+
 }

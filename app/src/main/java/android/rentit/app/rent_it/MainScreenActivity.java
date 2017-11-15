@@ -142,17 +142,7 @@ public class MainScreenActivity extends AppCompatActivity {
 //
 //                        break;
                     case R.id.tab_profile:
-          /*              Fragment frag;
-                        Profilefragment frag1 = new Profilefragment();
-                        frag = frag1;
 
-                        FragmentManager fm = getSupportFragmentManager();
-
-                        FragmentTransaction ft = fm.beginTransaction();
-                        ft.replace(R.id.fragment_switch2, frag).commit();
-
-                        // ft.addToBackStack(null).commit();
-*/
                         startActivity(new Intent(getBaseContext(),ProfileView.class));
                         break;
 

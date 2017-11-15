@@ -66,7 +66,7 @@ public class CreateAccount extends AppCompatActivity {
 
         //validate email & phone
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+                btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = editTextName.getText().toString().trim();
@@ -173,7 +173,9 @@ public class CreateAccount extends AppCompatActivity {
 
     private void registerUser(final String name, final String mobno, final String emailAddress, String password)
     {
-            progressDialog.setMessage("Registering User...");
+            progressDialog.setTitle("Registering User");
+            progressDialog.setMessage("Please wait while we create your account");
+            progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(emailAddress,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -189,15 +191,19 @@ public class CreateAccount extends AppCompatActivity {
                     String userID  = user.getUid();
                     UserInformation userInformation = new UserInformation(name,emailAddress,mobno);
                     myRef.child("users").child(userID).setValue(userInformation);
+                    progressDialog.dismiss();
 
-                    startActivity(new Intent(CreateAccount.this,LoginActivity.class));
+                    Intent intent = new Intent(CreateAccount.this,LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
 
                 }
                 else {
+                    progressDialog.dismiss();
                     Log.e("Error",task.getException().toString());
                     Toast.makeText(CreateAccount.this, "Registration failed", Toast.LENGTH_SHORT).show();
                 }
-                progressDialog.dismiss();
+
             }
         });
 

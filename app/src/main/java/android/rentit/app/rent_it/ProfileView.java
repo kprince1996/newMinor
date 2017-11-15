@@ -1,5 +1,6 @@
 package android.rentit.app.rent_it;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,50 +38,47 @@ public class ProfileView extends AppCompatActivity {
 
     private ListView listView;
 
-    private EditText editTextName;
-    private  EditText editTextEmail;
-    private  EditText editTextMobno;
+    private TextView editTextName;
+    private  TextView editTextEmail;
+    private  TextView editTextMobno;
 
+    private DatabaseReference mUserDatabase;
+    private FirebaseUser mCurrentUser;
+
+    private ProgressDialog mProgressDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profilefragment);
+        setContentView(R.layout.activity_profile_setting);
+
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle("Fetching information");
+        mProgressDialog.setMessage("Please wait while we are processing your profile information");
+        mProgressDialog.show();
+
+        editTextName = (TextView) findViewById(R.id.editText_nameDetails);
+        editTextEmail = (TextView) findViewById(R.id.editText_emailDetails);
+        editTextMobno = (TextView) findViewById(R.id.editText_contactDetails);
+
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String current_uid = mCurrentUser.getUid();
+
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(current_uid);
 
 
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
-
-        editTextName = (EditText) findViewById(R.id.editText_nameDetails);
-        editTextEmail = (EditText) findViewById(R.id.editText_emailDetails);
-        editTextMobno = (EditText) findViewById(R.id.editText_contactDetails);
-
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        userID = user.getUid();
-
-        //listView  = (ListView) findViewById(R.id.listview_userprofile);
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser()!=null)
-                {
-                    toastMessage("signed in..");
-                }
-                else
-                {
-                    toastMessage("Signing out...");
-
-                }
-            }
-        };
-
-
-        myRef.addValueEventListener(new ValueEventListener() {
+        mUserDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                showData(dataSnapshot);
+                String name = dataSnapshot.child("name").getValue().toString();
+           //     String image = dataSnapshot.child("image").getValue().toString();
+                String email = dataSnapshot.child("email").getValue().toString();
+                String mobNo = dataSnapshot.child("mobNo").getValue().toString();
+
+                editTextName.setText(name);
+                editTextEmail.setText(email);
+                editTextMobno.setText(mobNo);
+
+                mProgressDialog.dismiss();
             }
 
             @Override
@@ -87,33 +86,6 @@ public class ProfileView extends AppCompatActivity {
 
             }
         });
-
-
-    }
-
-    private void showData(DataSnapshot dataSnapshot) {
-
-        for(DataSnapshot ds:dataSnapshot.getChildren())
-        {
-            UserInformation uInfo = new UserInformation();
-            uInfo.setName(ds.child(userID).getValue(UserInformation.class).getName());//set the name
-            uInfo.setEmail(ds.child(userID).getValue(UserInformation.class).getEmail());//set the email
-            uInfo.setMobNo((ds.child(userID).getValue(UserInformation.class).getMobNo()));//set the mob no
-
-           // ArrayList<String> arrayList = new ArrayList<>();
-
-            //arrayList.add(uInfo.getName());
-            //arrayList.add(uInfo.getEmail());
-            //arrayList.add(uInfo.getMobNo());
-
-              //  ArrayAdapter adapter = new ArrayAdapter(this,R.layout.fragment_profilefragment,arrayList);
-              //listView.setAdapter(adapter);
-
-            editTextName.setText(uInfo.getName());
-            editTextEmail.setText(uInfo.getEmail());
-            editTextMobno.setText(uInfo.getMobNo());
-        }
-
     }
 
 
@@ -124,32 +96,11 @@ public class ProfileView extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
-        if(isNetworkAvailable()==false)
-        { Toast.makeText(this, "Internet Connection is required", Toast.LENGTH_SHORT).show();
-
-        }
-        else
-        {
-  //          mAuth.addAuthStateListener(mAuthListener);
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-    //        mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
 
 
     private void toastMessage(String msg)
     {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
 }
