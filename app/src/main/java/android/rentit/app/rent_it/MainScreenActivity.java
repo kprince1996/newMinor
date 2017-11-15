@@ -1,35 +1,24 @@
 package android.rentit.app.rent_it;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.rentit.app.rent_it.chat.LoginActivity3;
+import android.rentit.app.rent_it.chat.UserListingActivity;
 import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
-
-import static android.rentit.app.rent_it.Maindisplay.ctx;
-import static android.rentit.app.rent_it.Maindisplay.thishai;
-import static android.rentit.app.rent_it.R.string.close;
-import static android.rentit.app.rent_it.R.string.open;
-import static android.rentit.app.rent_it.R.string.title_activity_main_screen;
 
 public class MainScreenActivity extends AppCompatActivity {
 
