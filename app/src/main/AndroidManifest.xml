@@ -42,10 +42,10 @@
         <activity android:name=".ForgetPassword" />
         <activity android:name=".test2" />
         <activity android:name=".ProfileView" />
-        <activity android:name=".UserListingActivity" />
-        <activity android:name=".LoginActivity3" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".chat.UserListingActivity" />
+        <activity android:name=".chat.LoginActivity3" />
+        <activity android:name=".chat.ChatActivity" />
+        <activity android:name=".chat.RegisterActivity"/>
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

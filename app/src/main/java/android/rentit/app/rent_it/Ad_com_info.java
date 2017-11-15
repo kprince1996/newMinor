@@ -1,21 +1,16 @@
 package android.rentit.app.rent_it;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
+import android.rentit.app.rent_it.chat.LoginActivity3;
+import android.rentit.app.rent_it.chat.UserListingActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
-import com.bumptech.glide.RequestManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
