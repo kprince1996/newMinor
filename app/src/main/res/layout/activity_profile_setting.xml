@@ -2,9 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/colorPrimary"
     >
+
+    <include layout="@layout/appbar_layout"
+        android:id="@+id/main_page_toolbar"
+        ></include>
 
 
     <TextView
@@ -80,11 +83,12 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/settings_change_Image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:textColor="#FFFFFF"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:text="Continue" />
+        android:text="Change Image" />
 
 </LinearLayout>

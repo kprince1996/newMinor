@@ -31,6 +31,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -42,8 +44,10 @@ public class CreateAccount extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef,mDatabase;
 
+    private static String DEFAULT_IMAGE_PATH =
+            "https://firebasestorage.googleapis.com/v0/b/rent-it-322e1.appspot.com/o/Profile_images%2Fimages.png?alt=media&token=39ed2d42-f783-4ab6-a27b-969b3f3d5060" ;
     private static String TAG  = "Create Account";
 
     @Override
@@ -73,6 +77,8 @@ public class CreateAccount extends AppCompatActivity {
                 String mobno = editTextMobileNo.getText().toString().trim();
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
+
+
 
                 if(isNetworkAvailable()==false)
                 {
@@ -186,16 +192,42 @@ public class CreateAccount extends AppCompatActivity {
 
 
                     FirebaseUser user = mAuth.getCurrentUser();
-                    mFirebaseDatabase = FirebaseDatabase.getInstance();
-                    myRef = mFirebaseDatabase.getReference();
-                    String userID  = user.getUid();
-                    UserInformation userInformation = new UserInformation(name,emailAddress,mobno);
-                    myRef.child("users").child(userID).setValue(userInformation);
-                    progressDialog.dismiss();
+                    //mFirebaseDatabase = FirebaseDatabase.getInstance();
+                    //myRef = mFirebaseDatabase.getReference();
 
-                    Intent intent = new Intent(CreateAccount.this,LoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    String userID  = user.getUid();
+//                    UserInformation userInformation = new UserInformation(name,emailAddress,mobno,DEFAULT_IMAGE_PATH);
+
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
+
+                    HashMap<String,String> userDetails = new HashMap<>();
+                    userDetails.put("name",name);
+                    userDetails.put("email",emailAddress);
+                    userDetails.put("mobNo",mobno);
+                    userDetails.put("image",DEFAULT_IMAGE_PATH);
+
+                    mDatabase.setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful())
+                            {
+                                progressDialog.dismiss();
+
+                                Intent intent = new Intent(CreateAccount.this,LoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }
+
+                            else
+                            {
+                                progressDialog.dismiss();
+                                Toast.makeText(CreateAccount.this, "Error occured while registering", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    //myRef.child("users").child(userID).setValue(userInformation);
+
 
                 }
                 else {

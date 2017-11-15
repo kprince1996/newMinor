@@ -34,6 +34,7 @@ public class MainScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
         drawerLayout=(DrawerLayout)findViewById(R.id.mainscreendrawer);
 
         nv = (NavigationView)findViewById(R.id.vipulnav);
@@ -175,7 +176,7 @@ public class MainScreenActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId())
                 {
-                    case(R.id.Contact):
+                 //   case(R.id.Contact):
                       //  Intent in = new Intent(getApplicationContext(),Contactus.class);
                        // startActivity(in);
                 }

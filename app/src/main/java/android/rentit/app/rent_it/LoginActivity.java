@@ -36,6 +36,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 
 public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
@@ -56,6 +58,10 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private GoogleApiClient mGoogleApiClient;
+
+    private static String DEFAULT_IMAGE_PATH =
+            "https://firebasestorage.googleapis.com/v0/b/rent-it-322e1.appspot.com/o/Profile_images%2Fimages.png?alt=media&token=39ed2d42-f783-4ab6-a27b-969b3f3d5060";
+
 
 
     @Override
@@ -232,7 +238,7 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
                             Toast.makeText(LoginActivity.this, "name : "+user.getDisplayName()+"\nemail"+user.getEmail()+"\nphone"+user.getPhoneNumber() , Toast.LENGTH_SHORT).show();
                             registerUser(user);
 
-                            startActivity(new Intent(LoginActivity.this,MainScreenActivity.class));
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -251,13 +257,39 @@ public class LoginActivity extends BaseActivity implements  GoogleApiClient.OnCo
     private void registerUser(FirebaseUser user)
     {
                     String userID  = user.getUid();
-                    UserInformation userInformation = new UserInformation(user.getDisplayName(),user.getEmail(),user.getPhoneNumber());
+                    //UserInformation userInformation = new UserInformation(user.getDisplayName(),user.getEmail(),user.getPhoneNumber(),"default");
 
-                    if(user.getPhoneNumber()==null)
-                        userInformation.setMobNo(""+0);
-                    FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = mFirebaseDatabase.getReference();
-                    myRef.child("users").child(userID).setValue(userInformation);
+                    ///if(user.getPhoneNumber()==null)
+                       // userInformation.setMobNo(""+0);
+                    //FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
+                    //DatabaseReference myRef = mFirebaseDatabase.getReference();
+
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(userID);
+
+                    HashMap<String,String> userDetails = new HashMap<>();
+                    userDetails.put("name",user.getDisplayName());
+                    userDetails.put("email",user.getEmail());
+                    userDetails.put("mobNo","0");
+                    userDetails.put("image",DEFAULT_IMAGE_PATH);
+
+
+                    mDatabase.setValue(userDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful())
+                            {
+                                startActivity(new Intent(LoginActivity.this,MainScreenActivity.class));
+                            }
+                            else
+                                {
+                                    Toast.makeText(LoginActivity.this, "Failed...!!!", Toast.LENGTH_SHORT).show();
+
+                                }
+                        }
+                    });
+        //myRef.child("users").child(userID).setValue(userInformation);
+
+
 
         //            startActivity(new Intent(CreateAccount.this,LoginActivity.class));
 
